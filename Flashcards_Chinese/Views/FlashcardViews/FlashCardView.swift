@@ -61,9 +61,25 @@ private struct FrontView: View {
     
     private var mainContent: some View {
         VStack(spacing: 8) {
-            Text(card.chinese).font(.system(size: 80, weight: .bold, design: .rounded)).foregroundColor(Theme.textColor)
-            Text(card.pinyin).font(.system(size: 26, design: .rounded)).foregroundColor(Theme.pinyinColor)
-            Text("(\(card.pronunciation))").font(.system(size: 20, design: .rounded)).italic().foregroundColor(Theme.tertiaryTextColor)
+            Text(card.chinese)
+                .font(.system(size: 80, weight: .bold, design: .rounded))
+                .foregroundColor(Theme.textColor)
+                .lineLimit(nil)
+                .minimumScaleFactor(0.6)
+                .fixedSize(horizontal: false, vertical: true)
+            Text(card.pinyin)
+                .font(.system(size: 26, design: .rounded))
+                .foregroundColor(Theme.pinyinColor)
+                .lineLimit(nil)
+                .minimumScaleFactor(0.8)
+                .fixedSize(horizontal: false, vertical: true)
+            Text("(\(card.pronunciation))")
+                .font(.system(size: 20, design: .rounded))
+                .italic()
+                .foregroundColor(Theme.tertiaryTextColor)
+                .lineLimit(nil)
+                .minimumScaleFactor(0.8)
+                .fixedSize(horizontal: false, vertical: true)
         }.multilineTextAlignment(.center)
     }
     
@@ -116,10 +132,24 @@ private struct BackView: View {
         VStack(alignment: .leading, spacing: 12) {
             Text("EXAMPLE USAGE").font(.caption.weight(.bold)).foregroundColor(Theme.tertiaryTextColor).frame(maxWidth: .infinity, alignment: .center)
             VStack(alignment: .center, spacing: 6) {
-                Text(card.exampleSentence).font(.title3.weight(.medium))
-                Text(card.examplePinyin).font(.body).foregroundColor(Theme.pinyinColor)
+                Text(card.exampleSentence)
+                    .font(.title3.weight(.medium))
+                    .lineLimit(nil)
+                    .minimumScaleFactor(0.8)
+                    .fixedSize(horizontal: false, vertical: true)
+                Text(card.examplePinyin)
+                    .font(.body)
+                    .foregroundColor(Theme.pinyinColor)
+                    .lineLimit(nil)
+                    .minimumScaleFactor(0.8)
+                    .fixedSize(horizontal: false, vertical: true)
                 Divider().padding(.vertical, 4)
-                Text(card.exampleTranslation).font(.body).italic()
+                Text(card.exampleTranslation)
+                    .font(.body)
+                    .italic()
+                    .lineLimit(nil)
+                    .minimumScaleFactor(0.8)
+                    .fixedSize(horizontal: false, vertical: true)
             }
             .multilineTextAlignment(.center).foregroundColor(Theme.textColor)
         }.padding().background(Theme.secondaryBackgroundColor).cornerRadius(12)
@@ -150,7 +180,13 @@ private struct TranslationBox: View {
     var body: some View {
         VStack(spacing: 2) {
             Text(language).font(.caption.weight(.semibold)).foregroundColor(Theme.tertiaryTextColor)
-            Text(meaning).font(.title2.weight(.regular)).foregroundColor(Theme.secondaryTextColor).multilineTextAlignment(.center)
+            Text(meaning)
+                .font(.title2.weight(.regular))
+                .foregroundColor(Theme.secondaryTextColor)
+                .multilineTextAlignment(.center)
+                .lineLimit(nil)
+                .minimumScaleFactor(0.8)
+                .fixedSize(horizontal: false, vertical: true)
         }
         .padding(.vertical, 8).padding(.horizontal).frame(maxWidth: .infinity)
         .background(Theme.secondaryBackgroundColor).cornerRadius(10)

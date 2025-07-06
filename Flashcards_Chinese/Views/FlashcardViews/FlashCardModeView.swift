@@ -130,6 +130,9 @@ struct FlashcardModeView: View {
                     .offset(x: dragOffset.width, y: 0)
                     .rotationEffect(.degrees(Double(dragOffset.width / 20)))
                     .gesture(DragGesture().onChanged(handleDragChange).onEnded(handleDragEnd))
+                    .onTapGesture {
+                        flipCard()
+                    }
             }
             .frame(height: 420).padding(.horizontal, 15)
         }
