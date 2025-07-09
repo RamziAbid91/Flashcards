@@ -7,11 +7,40 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2E79D6DE2DFDBB3D00CFF202 /* Flashcards_ChineseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E79D6DD2DFDBB3D00CFF202 /* Flashcards_ChineseApp.swift */; };
-		2E79D6E02DFDBB3D00CFF202 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E79D6DF2DFDBB3D00CFF202 /* ContentView.swift */; };
-		2E79D6E22DFDBB3F00CFF202 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E79D6E12DFDBB3F00CFF202 /* Assets.xcassets */; };
-		2E79D6E62DFDBB3F00CFF202 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E79D6E52DFDBB3F00CFF202 /* Preview Assets.xcassets */; };
-		2E79D6F02DFDBB4000CFF202 /* Flashcards_ChineseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E79D6EF2DFDBB4000CFF202 /* Flashcards_ChineseTests.swift */; };
+
+		2E746F312E1E205A00E6F8E0 /* ThemeUpdaterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F2F2E1E205A00E6F8E0 /* ThemeUpdaterView.swift */; };
+
+		2E746F332E1E205A00E6F8E0 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F2E2E1E205A00E6F8E0 /* Theme.swift */; };
+		2E746F352E1E205A00E6F8E0 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F2D2E1E205A00E6F8E0 /* HapticManager.swift */; };
+		2E746F5F2E1E206400E6F8E0 /* AdminPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F4A2E1E206400E6F8E0 /* AdminPanelView.swift */; };
+		2E746F602E1E206400E6F8E0 /* CategoryPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F4F2E1E206400E6F8E0 /* CategoryPickerView.swift */; };
+		2E746F632E1E206400E6F8E0 /* QuizModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F562E1E206400E6F8E0 /* QuizModeView.swift */; };
+		2E746F642E1E206400E6F8E0 /* CategoryPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F582E1E206400E6F8E0 /* CategoryPickerView.swift */; };
+		2E746F652E1E206400E6F8E0 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F3E2E1E206400E6F8E0 /* ProgressBar.swift */; };
+		2E746F662E1E206400E6F8E0 /* FavoriteCardRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F402E1E206400E6F8E0 /* FavoriteCardRow.swift */; };
+		2E746F672E1E206400E6F8E0 /* QuizFeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F542E1E206400E6F8E0 /* QuizFeedbackView.swift */; };
+		2E746F682E1E206400E6F8E0 /* FlashcardDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F462E1E206400E6F8E0 /* FlashcardDetailView.swift */; };
+		2E746F692E1E206400E6F8E0 /* QuizCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F522E1E206400E6F8E0 /* QuizCompleteView.swift */; };
+		2E746F6A2E1E206400E6F8E0 /* FlashCardModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F472E1E206400E6F8E0 /* FlashCardModeView.swift */; };
+		2E746F6B2E1E206400E6F8E0 /* ControlButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F442E1E206400E6F8E0 /* ControlButton.swift */; };
+		2E746F6D2E1E206400E6F8E0 /* QuizCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F512E1E206400E6F8E0 /* QuizCardView.swift */; };
+		2E746F6E2E1E206400E6F8E0 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F4D2E1E206400E6F8E0 /* SettingsView.swift */; };
+		2E746F6F2E1E206400E6F8E0 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F502E1E206400E6F8E0 /* ProgressBar.swift */; };
+		2E746F702E1E206400E6F8E0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F4B2E1E206400E6F8E0 /* HomeView.swift */; };
+		2E746F712E1E206400E6F8E0 /* FlashCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F482E1E206400E6F8E0 /* FlashCardView.swift */; };
+		2E746F722E1E206400E6F8E0 /* MainMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F592E1E206400E6F8E0 /* MainMenuButton.swift */; };
+		2E746F732E1E206400E6F8E0 /* QuizCompletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F532E1E206400E6F8E0 /* QuizCompletionView.swift */; };
+		2E746F742E1E206400E6F8E0 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F4C2E1E206400E6F8E0 /* MainTabView.swift */; };
+		2E746F752E1E206400E6F8E0 /* CategoryPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F432E1E206400E6F8E0 /* CategoryPickerView.swift */; };
+		2E746F762E1E206400E6F8E0 /* AddCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F5C2E1E206400E6F8E0 /* AddCardView.swift */; };
+		2E746F772E1E206400E6F8E0 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F412E1E206400E6F8E0 /* FavoritesView.swift */; };
+		2E746F792E1E206400E6F8E0 /* QuizModeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F5A2E1E206400E6F8E0 /* QuizModeButton.swift */; };
+		2E746F7B2E1E20EB00E6F8E0 /* Chinese_FlashcardsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F7A2E1E20EB00E6F8E0 /* Chinese_FlashcardsApp.swift */; };
+		2E746F892E1E21A500E6F8E0 /* FlashcardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F872E1E21A500E6F8E0 /* FlashcardDeck.swift */; };
+		2E746F8A2E1E21A500E6F8E0 /* Flashcard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F862E1E21A500E6F8E0 /* Flashcard.swift */; };
+
+		2E79D6E02DFDBB3D00CFF202 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F3B2E1E206400E6F8E0 /* ContentView.swift */; };
+
 		2E79D6FA2DFDBB4000CFF202 /* Flashcards_ChineseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E79D6F92DFDBB4000CFF202 /* Flashcards_ChineseUITests.swift */; };
 		2E79D6FC2DFDBB4000CFF202 /* Flashcards_ChineseUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E79D6FB2DFDBB4000CFF202 /* Flashcards_ChineseUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
@@ -34,9 +63,38 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+
+		2E746F2D2E1E205A00E6F8E0 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flashcards_Chinese/Utils/HapticManager.swift; sourceTree = "<group>"; };
+		2E746F2E2E1E205A00E6F8E0 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flashcards_Chinese/Utils/Theme.swift; sourceTree = "<group>"; };
+		2E746F2F2E1E205A00E6F8E0 /* ThemeUpdaterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flashcards_Chinese/Utils/ThemeUpdaterView.swift; sourceTree = "<group>"; };
+		2E746F3E2E1E206400E6F8E0 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
+		2E746F402E1E206400E6F8E0 /* FavoriteCardRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCardRow.swift; sourceTree = "<group>"; };
+		2E746F412E1E206400E6F8E0 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
+		2E746F432E1E206400E6F8E0 /* CategoryPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPickerView.swift; sourceTree = "<group>"; };
+		2E746F442E1E206400E6F8E0 /* ControlButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlButton.swift; sourceTree = "<group>"; };
+		2E746F462E1E206400E6F8E0 /* FlashcardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardDetailView.swift; sourceTree = "<group>"; };
+		2E746F472E1E206400E6F8E0 /* FlashCardModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardModeView.swift; sourceTree = "<group>"; };
+		2E746F482E1E206400E6F8E0 /* FlashCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardView.swift; sourceTree = "<group>"; };
+		2E746F4A2E1E206400E6F8E0 /* AdminPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminPanelView.swift; sourceTree = "<group>"; };
+		2E746F4B2E1E206400E6F8E0 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		2E746F4C2E1E206400E6F8E0 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		2E746F4D2E1E206400E6F8E0 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		2E746F4F2E1E206400E6F8E0 /* CategoryPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPickerView.swift; sourceTree = "<group>"; };
+		2E746F502E1E206400E6F8E0 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
+		2E746F512E1E206400E6F8E0 /* QuizCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizCardView.swift; sourceTree = "<group>"; };
+		2E746F522E1E206400E6F8E0 /* QuizCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizCompleteView.swift; sourceTree = "<group>"; };
+		2E746F532E1E206400E6F8E0 /* QuizCompletionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizCompletionView.swift; sourceTree = "<group>"; };
+		2E746F542E1E206400E6F8E0 /* QuizFeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizFeedbackView.swift; sourceTree = "<group>"; };
+		2E746F562E1E206400E6F8E0 /* QuizModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizModeView.swift; sourceTree = "<group>"; };
+		2E746F582E1E206400E6F8E0 /* CategoryPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPickerView.swift; sourceTree = "<group>"; };
+		2E746F592E1E206400E6F8E0 /* MainMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuButton.swift; sourceTree = "<group>"; };
+		2E746F5A2E1E206400E6F8E0 /* QuizModeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizModeButton.swift; sourceTree = "<group>"; };
+		2E746F5C2E1E206400E6F8E0 /* AddCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardView.swift; sourceTree = "<group>"; };
+		2E746F7A2E1E20EB00E6F8E0 /* Chinese_FlashcardsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chinese_FlashcardsApp.swift; sourceTree = "<group>"; };
+
+		2E746F862E1E21A500E6F8E0 /* Flashcard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flashcards_Chinese/Models/Flashcard.swift; sourceTree = "<group>"; };
+		2E746F872E1E21A500E6F8E0 /* FlashcardDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flashcards_Chinese/Models/FlashcardDeck.swift; sourceTree = "<group>"; };
 		2E79D6DA2DFDBB3D00CFF202 /* Flashcards_Chinese.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flashcards_Chinese.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		2E79D6DD2DFDBB3D00CFF202 /* Flashcards_ChineseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flashcards_ChineseApp.swift; sourceTree = "<group>"; };
-		2E79D6DF2DFDBB3D00CFF202 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2E79D6E12DFDBB3F00CFF202 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2E79D6E32DFDBB3F00CFF202 /* Flashcards_Chinese.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Flashcards_Chinese.entitlements; sourceTree = "<group>"; };
 		2E79D6E52DFDBB3F00CFF202 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -72,6 +130,121 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+
+
+		2E746F3C2E1E206400E6F8E0 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				2E746F392E1E206400E6F8E0 /* HapticManager.swift */,
+				2E746F3A2E1E206400E6F8E0 /* Theme.swift */,
+				2E746F3B2E1E206400E6F8E0 /* ThemeUpdaterView.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		2E746F3D2E1E206400E6F8E0 /* AdminViews */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AdminViews;
+			sourceTree = "<group>";
+		};
+		2E746F3F2E1E206400E6F8E0 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				2E746F3E2E1E206400E6F8E0 /* ProgressBar.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		2E746F422E1E206400E6F8E0 /* FavoritesViews */ = {
+			isa = PBXGroup;
+			children = (
+				2E746F402E1E206400E6F8E0 /* FavoriteCardRow.swift */,
+				2E746F412E1E206400E6F8E0 /* FavoritesView.swift */,
+			);
+			path = FavoritesViews;
+			sourceTree = "<group>";
+		};
+		2E746F452E1E206400E6F8E0 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				2E746F432E1E206400E6F8E0 /* CategoryPickerView.swift */,
+				2E746F442E1E206400E6F8E0 /* ControlButton.swift */,
+			);
+			path = Controls;
+			sourceTree = "<group>";
+		};
+		2E746F492E1E206400E6F8E0 /* FlashcardViews */ = {
+			isa = PBXGroup;
+			children = (
+				2E746F452E1E206400E6F8E0 /* Controls */,
+				2E746F462E1E206400E6F8E0 /* FlashcardDetailView.swift */,
+				2E746F472E1E206400E6F8E0 /* FlashCardModeView.swift */,
+				2E746F482E1E206400E6F8E0 /* FlashCardView.swift */,
+			);
+			path = FlashcardViews;
+			sourceTree = "<group>";
+		};
+		2E746F4E2E1E206400E6F8E0 /* MainViews */ = {
+			isa = PBXGroup;
+			children = (
+				2E746F4A2E1E206400E6F8E0 /* AdminPanelView.swift */,
+				2E746F4B2E1E206400E6F8E0 /* HomeView.swift */,
+				2E746F4C2E1E206400E6F8E0 /* MainTabView.swift */,
+				2E746F4D2E1E206400E6F8E0 /* SettingsView.swift */,
+			);
+			path = MainViews;
+			sourceTree = "<group>";
+		};
+		2E746F552E1E206400E6F8E0 /* QuizComponents */ = {
+			isa = PBXGroup;
+			children = (
+				2E746F4F2E1E206400E6F8E0 /* CategoryPickerView.swift */,
+				2E746F502E1E206400E6F8E0 /* ProgressBar.swift */,
+				2E746F512E1E206400E6F8E0 /* QuizCardView.swift */,
+				2E746F522E1E206400E6F8E0 /* QuizCompleteView.swift */,
+				2E746F532E1E206400E6F8E0 /* QuizCompletionView.swift */,
+				2E746F542E1E206400E6F8E0 /* QuizFeedbackView.swift */,
+			);
+			path = QuizComponents;
+			sourceTree = "<group>";
+		};
+		2E746F572E1E206400E6F8E0 /* QuizViews */ = {
+			isa = PBXGroup;
+			children = (
+				2E746F552E1E206400E6F8E0 /* QuizComponents */,
+				2E746F562E1E206400E6F8E0 /* QuizModeView.swift */,
+			);
+			path = QuizViews;
+			sourceTree = "<group>";
+		};
+		2E746F5B2E1E206400E6F8E0 /* SharedComponents */ = {
+			isa = PBXGroup;
+			children = (
+				2E746F582E1E206400E6F8E0 /* CategoryPickerView.swift */,
+				2E746F592E1E206400E6F8E0 /* MainMenuButton.swift */,
+				2E746F5A2E1E206400E6F8E0 /* QuizModeButton.swift */,
+			);
+			path = SharedComponents;
+			sourceTree = "<group>";
+		};
+		2E746F5D2E1E206400E6F8E0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2E746F3D2E1E206400E6F8E0 /* AdminViews */,
+				2E746F3F2E1E206400E6F8E0 /* Components */,
+				2E746F422E1E206400E6F8E0 /* FavoritesViews */,
+				2E746F492E1E206400E6F8E0 /* FlashcardViews */,
+				2E746F4E2E1E206400E6F8E0 /* MainViews */,
+				2E746F572E1E206400E6F8E0 /* QuizViews */,
+				2E746F5B2E1E206400E6F8E0 /* SharedComponents */,
+				2E746F5C2E1E206400E6F8E0 /* AddCardView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+
 		2E79D6D12DFDBB3D00CFF202 = {
 			isa = PBXGroup;
 			children = (
@@ -95,11 +268,9 @@
 		2E79D6DC2DFDBB3D00CFF202 /* Flashcards_Chinese */ = {
 			isa = PBXGroup;
 			children = (
-				2E79D6DD2DFDBB3D00CFF202 /* Flashcards_ChineseApp.swift */,
-				2E79D6DF2DFDBB3D00CFF202 /* ContentView.swift */,
-				2E79D6E12DFDBB3F00CFF202 /* Assets.xcassets */,
-				2E79D6E32DFDBB3F00CFF202 /* Flashcards_Chinese.entitlements */,
-				2E79D6E42DFDBB3F00CFF202 /* Preview Content */,
+				2E746F3C2E1E206400E6F8E0 /* Utils */,
+				2E746F5D2E1E206400E6F8E0 /* Views */,
+				2E746F7A2E1E20EB00E6F8E0 /* Chinese_FlashcardsApp.swift */,
 			);
 			path = Flashcards_Chinese;
 			sourceTree = "<group>";
@@ -193,7 +364,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1540;
-				LastUpgradeCheck = 1540;
+				LastUpgradeCheck = 1640;
 				TargetAttributes = {
 					2E79D6D92DFDBB3D00CFF202 = {
 						CreatedOnToolsVersion = 15.4;
@@ -259,8 +430,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E746F312E1E205A00E6F8E0 /* ThemeUpdaterView.swift in Sources */,
+				2E746F332E1E205A00E6F8E0 /* Theme.swift in Sources */,
+				2E746F352E1E205A00E6F8E0 /* HapticManager.swift in Sources */,
 				2E79D6E02DFDBB3D00CFF202 /* ContentView.swift in Sources */,
+				2E746F5F2E1E206400E6F8E0 /* AdminPanelView.swift in Sources */,
+				2E746F602E1E206400E6F8E0 /* CategoryPickerView.swift in Sources */,
+				2E746F632E1E206400E6F8E0 /* QuizModeView.swift in Sources */,
+				2E746F652E1E206400E6F8E0 /* ProgressBar.swift in Sources */,
+				2E746F662E1E206400E6F8E0 /* FavoriteCardRow.swift in Sources */,
+				2E746F672E1E206400E6F8E0 /* QuizFeedbackView.swift in Sources */,
+				2E746F682E1E206400E6F8E0 /* FlashcardDetailView.swift in Sources */,
+				2E746F692E1E206400E6F8E0 /* QuizCompleteView.swift in Sources */,
+				2E746F6A2E1E206400E6F8E0 /* FlashCardModeView.swift in Sources */,
+				2E746F6B2E1E206400E6F8E0 /* ControlButton.swift in Sources */,
+				2E746F6D2E1E206400E6F8E0 /* QuizCardView.swift in Sources */,
+				2E746F6E2E1E206400E6F8E0 /* SettingsView.swift in Sources */,
+				2E746F702E1E206400E6F8E0 /* HomeView.swift in Sources */,
+				2E746F712E1E206400E6F8E0 /* FlashCardView.swift in Sources */,
+				2E746F722E1E206400E6F8E0 /* MainMenuButton.swift in Sources */,
+				2E746F732E1E206400E6F8E0 /* QuizCompletionView.swift in Sources */,
+				2E746F742E1E206400E6F8E0 /* MainTabView.swift in Sources */,
+				2E746F762E1E206400E6F8E0 /* AddCardView.swift in Sources */,
+				2E746F772E1E206400E6F8E0 /* FavoritesView.swift in Sources */,
+				2E746F792E1E206400E6F8E0 /* QuizModeButton.swift in Sources */,
+				2E746F7B2E1E20EB00E6F8E0 /* Chinese_FlashcardsApp.swift in Sources */,
 				2E79D6DE2DFDBB3D00CFF202 /* Flashcards_ChineseApp.swift in Sources */,
+				2E746F892E1E21A500E6F8E0 /* FlashcardDeck.swift in Sources */,
+				2E746F8A2E1E21A500E6F8E0 /* Flashcard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,7 +528,9 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 8828MV3PRT;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -392,7 +591,9 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 8828MV3PRT;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -419,8 +620,8 @@
 				CODE_SIGN_ENTITLEMENTS = Flashcards_Chinese/Flashcards_Chinese.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Flashcards_Chinese/Preview Content\"";
-				DEVELOPMENT_TEAM = 8828MV3PRT;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -457,8 +658,8 @@
 				CODE_SIGN_ENTITLEMENTS = Flashcards_Chinese/Flashcards_Chinese.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Flashcards_Chinese/Preview Content\"";
-				DEVELOPMENT_TEAM = 8828MV3PRT;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -490,11 +691,10 @@
 		2E79D7032DFDBB4000CFF202 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8828MV3PRT;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				MACOSX_DEPLOYMENT_TARGET = 14.4;
@@ -513,11 +713,10 @@
 		2E79D7042DFDBB4000CFF202 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8828MV3PRT;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				MACOSX_DEPLOYMENT_TARGET = 14.4;
@@ -536,10 +735,9 @@
 		2E79D7062DFDBB4000CFF202 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8828MV3PRT;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				MACOSX_DEPLOYMENT_TARGET = 14.4;
@@ -558,10 +756,9 @@
 		2E79D7072DFDBB4000CFF202 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8828MV3PRT;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				MACOSX_DEPLOYMENT_TARGET = 14.4;
