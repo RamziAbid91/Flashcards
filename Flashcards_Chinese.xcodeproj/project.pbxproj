@@ -7,15 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-
-		2E746F312E1E205A00E6F8E0 /* ThemeUpdaterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F2F2E1E205A00E6F8E0 /* ThemeUpdaterView.swift */; };
-
-		2E746F332E1E205A00E6F8E0 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F2E2E1E205A00E6F8E0 /* Theme.swift */; };
-		2E746F352E1E205A00E6F8E0 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F2D2E1E205A00E6F8E0 /* HapticManager.swift */; };
+		2E06668C2E21DE8B004570E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E06668B2E21DE8B004570E2 /* Assets.xcassets */; };
+		2E746F312E1E205A00E6F8E0 /* Flashcards_Chinese/Utils/ThemeUpdaterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F2F2E1E205A00E6F8E0 /* Flashcards_Chinese/Utils/ThemeUpdaterView.swift */; };
+		2E746F332E1E205A00E6F8E0 /* Flashcards_Chinese/Utils/Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F2E2E1E205A00E6F8E0 /* Flashcards_Chinese/Utils/Theme.swift */; };
+		2E746F352E1E205A00E6F8E0 /* Flashcards_Chinese/Utils/HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F2D2E1E205A00E6F8E0 /* Flashcards_Chinese/Utils/HapticManager.swift */; };
 		2E746F5F2E1E206400E6F8E0 /* AdminPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F4A2E1E206400E6F8E0 /* AdminPanelView.swift */; };
 		2E746F602E1E206400E6F8E0 /* CategoryPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F4F2E1E206400E6F8E0 /* CategoryPickerView.swift */; };
 		2E746F632E1E206400E6F8E0 /* QuizModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F562E1E206400E6F8E0 /* QuizModeView.swift */; };
-		2E746F642E1E206400E6F8E0 /* CategoryPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F582E1E206400E6F8E0 /* CategoryPickerView.swift */; };
 		2E746F652E1E206400E6F8E0 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F3E2E1E206400E6F8E0 /* ProgressBar.swift */; };
 		2E746F662E1E206400E6F8E0 /* FavoriteCardRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F402E1E206400E6F8E0 /* FavoriteCardRow.swift */; };
 		2E746F672E1E206400E6F8E0 /* QuizFeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F542E1E206400E6F8E0 /* QuizFeedbackView.swift */; };
@@ -25,22 +23,18 @@
 		2E746F6B2E1E206400E6F8E0 /* ControlButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F442E1E206400E6F8E0 /* ControlButton.swift */; };
 		2E746F6D2E1E206400E6F8E0 /* QuizCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F512E1E206400E6F8E0 /* QuizCardView.swift */; };
 		2E746F6E2E1E206400E6F8E0 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F4D2E1E206400E6F8E0 /* SettingsView.swift */; };
-		2E746F6F2E1E206400E6F8E0 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F502E1E206400E6F8E0 /* ProgressBar.swift */; };
 		2E746F702E1E206400E6F8E0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F4B2E1E206400E6F8E0 /* HomeView.swift */; };
 		2E746F712E1E206400E6F8E0 /* FlashCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F482E1E206400E6F8E0 /* FlashCardView.swift */; };
 		2E746F722E1E206400E6F8E0 /* MainMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F592E1E206400E6F8E0 /* MainMenuButton.swift */; };
 		2E746F732E1E206400E6F8E0 /* QuizCompletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F532E1E206400E6F8E0 /* QuizCompletionView.swift */; };
 		2E746F742E1E206400E6F8E0 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F4C2E1E206400E6F8E0 /* MainTabView.swift */; };
-		2E746F752E1E206400E6F8E0 /* CategoryPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F432E1E206400E6F8E0 /* CategoryPickerView.swift */; };
 		2E746F762E1E206400E6F8E0 /* AddCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F5C2E1E206400E6F8E0 /* AddCardView.swift */; };
 		2E746F772E1E206400E6F8E0 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F412E1E206400E6F8E0 /* FavoritesView.swift */; };
 		2E746F792E1E206400E6F8E0 /* QuizModeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F5A2E1E206400E6F8E0 /* QuizModeButton.swift */; };
 		2E746F7B2E1E20EB00E6F8E0 /* Chinese_FlashcardsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F7A2E1E20EB00E6F8E0 /* Chinese_FlashcardsApp.swift */; };
-		2E746F892E1E21A500E6F8E0 /* FlashcardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F872E1E21A500E6F8E0 /* FlashcardDeck.swift */; };
-		2E746F8A2E1E21A500E6F8E0 /* Flashcard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F862E1E21A500E6F8E0 /* Flashcard.swift */; };
-
-		2E79D6E02DFDBB3D00CFF202 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F3B2E1E206400E6F8E0 /* ContentView.swift */; };
-
+		2E746F892E1E21A500E6F8E0 /* Flashcards_Chinese/Models/FlashcardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F872E1E21A500E6F8E0 /* Flashcards_Chinese/Models/FlashcardDeck.swift */; };
+		2E746F8A2E1E21A500E6F8E0 /* Flashcards_Chinese/Models/Flashcard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F862E1E21A500E6F8E0 /* Flashcards_Chinese/Models/Flashcard.swift */; };
+		2E79D6E02DFDBB3D00CFF202 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		2E79D6FA2DFDBB4000CFF202 /* Flashcards_ChineseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E79D6F92DFDBB4000CFF202 /* Flashcards_ChineseUITests.swift */; };
 		2E79D6FC2DFDBB4000CFF202 /* Flashcards_ChineseUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E79D6FB2DFDBB4000CFF202 /* Flashcards_ChineseUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
@@ -63,10 +57,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-
-		2E746F2D2E1E205A00E6F8E0 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flashcards_Chinese/Utils/HapticManager.swift; sourceTree = "<group>"; };
-		2E746F2E2E1E205A00E6F8E0 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flashcards_Chinese/Utils/Theme.swift; sourceTree = "<group>"; };
-		2E746F2F2E1E205A00E6F8E0 /* ThemeUpdaterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flashcards_Chinese/Utils/ThemeUpdaterView.swift; sourceTree = "<group>"; };
+		2E06668B2E21DE8B004570E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2E746F2D2E1E205A00E6F8E0 /* Flashcards_Chinese/Utils/HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flashcards_Chinese/Utils/HapticManager.swift; sourceTree = "<group>"; };
+		2E746F2E2E1E205A00E6F8E0 /* Flashcards_Chinese/Utils/Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flashcards_Chinese/Utils/Theme.swift; sourceTree = "<group>"; };
+		2E746F2F2E1E205A00E6F8E0 /* Flashcards_Chinese/Utils/ThemeUpdaterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flashcards_Chinese/Utils/ThemeUpdaterView.swift; sourceTree = "<group>"; };
 		2E746F3E2E1E206400E6F8E0 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		2E746F402E1E206400E6F8E0 /* FavoriteCardRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCardRow.swift; sourceTree = "<group>"; };
 		2E746F412E1E206400E6F8E0 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
@@ -91,13 +85,9 @@
 		2E746F5A2E1E206400E6F8E0 /* QuizModeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizModeButton.swift; sourceTree = "<group>"; };
 		2E746F5C2E1E206400E6F8E0 /* AddCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardView.swift; sourceTree = "<group>"; };
 		2E746F7A2E1E20EB00E6F8E0 /* Chinese_FlashcardsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chinese_FlashcardsApp.swift; sourceTree = "<group>"; };
-
-		2E746F862E1E21A500E6F8E0 /* Flashcard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flashcards_Chinese/Models/Flashcard.swift; sourceTree = "<group>"; };
-		2E746F872E1E21A500E6F8E0 /* FlashcardDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flashcards_Chinese/Models/FlashcardDeck.swift; sourceTree = "<group>"; };
+		2E746F862E1E21A500E6F8E0 /* Flashcards_Chinese/Models/Flashcard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flashcards_Chinese/Models/Flashcard.swift; sourceTree = "<group>"; };
+		2E746F872E1E21A500E6F8E0 /* Flashcards_Chinese/Models/FlashcardDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flashcards_Chinese/Models/FlashcardDeck.swift; sourceTree = "<group>"; };
 		2E79D6DA2DFDBB3D00CFF202 /* Flashcards_Chinese.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flashcards_Chinese.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		2E79D6E12DFDBB3F00CFF202 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		2E79D6E32DFDBB3F00CFF202 /* Flashcards_Chinese.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Flashcards_Chinese.entitlements; sourceTree = "<group>"; };
-		2E79D6E52DFDBB3F00CFF202 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2E79D6EB2DFDBB3F00CFF202 /* Flashcards_ChineseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Flashcards_ChineseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E79D6EF2DFDBB4000CFF202 /* Flashcards_ChineseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flashcards_ChineseTests.swift; sourceTree = "<group>"; };
 		2E79D6F52DFDBB4000CFF202 /* Flashcards_ChineseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Flashcards_ChineseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,14 +120,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-
-
 		2E746F3C2E1E206400E6F8E0 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				2E746F392E1E206400E6F8E0 /* HapticManager.swift */,
-				2E746F3A2E1E206400E6F8E0 /* Theme.swift */,
-				2E746F3B2E1E206400E6F8E0 /* ThemeUpdaterView.swift */,
+				2E06668B2E21DE8B004570E2 /* Assets.xcassets */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -244,7 +230,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-
 		2E79D6D12DFDBB3D00CFF202 = {
 			isa = PBXGroup;
 			children = (
@@ -252,6 +237,7 @@
 				2E79D6EE2DFDBB4000CFF202 /* Flashcards_ChineseTests */,
 				2E79D6F82DFDBB4000CFF202 /* Flashcards_ChineseUITests */,
 				2E79D6DB2DFDBB3D00CFF202 /* Products */,
+				2E919E3E2E21D8E100E8DD58 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -275,14 +261,6 @@
 			path = Flashcards_Chinese;
 			sourceTree = "<group>";
 		};
-		2E79D6E42DFDBB3F00CFF202 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				2E79D6E52DFDBB3F00CFF202 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
 		2E79D6EE2DFDBB4000CFF202 /* Flashcards_ChineseTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -298,6 +276,18 @@
 				2E79D6FB2DFDBB4000CFF202 /* Flashcards_ChineseUITestsLaunchTests.swift */,
 			);
 			path = Flashcards_ChineseUITests;
+			sourceTree = "<group>";
+		};
+		2E919E3E2E21D8E100E8DD58 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				2E746F2F2E1E205A00E6F8E0 /* Flashcards_Chinese/Utils/ThemeUpdaterView.swift */,
+				2E746F2E2E1E205A00E6F8E0 /* Flashcards_Chinese/Utils/Theme.swift */,
+				2E746F2D2E1E205A00E6F8E0 /* Flashcards_Chinese/Utils/HapticManager.swift */,
+				2E746F872E1E21A500E6F8E0 /* Flashcards_Chinese/Models/FlashcardDeck.swift */,
+				2E746F862E1E21A500E6F8E0 /* Flashcards_Chinese/Models/Flashcard.swift */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -404,8 +394,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E79D6E62DFDBB3F00CFF202 /* Preview Assets.xcassets in Resources */,
-				2E79D6E22DFDBB3F00CFF202 /* Assets.xcassets in Resources */,
+				2E06668C2E21DE8B004570E2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,10 +419,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E746F312E1E205A00E6F8E0 /* ThemeUpdaterView.swift in Sources */,
-				2E746F332E1E205A00E6F8E0 /* Theme.swift in Sources */,
-				2E746F352E1E205A00E6F8E0 /* HapticManager.swift in Sources */,
-				2E79D6E02DFDBB3D00CFF202 /* ContentView.swift in Sources */,
+				2E746F312E1E205A00E6F8E0 /* Flashcards_Chinese/Utils/ThemeUpdaterView.swift in Sources */,
+				2E746F332E1E205A00E6F8E0 /* Flashcards_Chinese/Utils/Theme.swift in Sources */,
+				2E746F352E1E205A00E6F8E0 /* Flashcards_Chinese/Utils/HapticManager.swift in Sources */,
+				2E79D6E02DFDBB3D00CFF202 /* (null) in Sources */,
 				2E746F5F2E1E206400E6F8E0 /* AdminPanelView.swift in Sources */,
 				2E746F602E1E206400E6F8E0 /* CategoryPickerView.swift in Sources */,
 				2E746F632E1E206400E6F8E0 /* QuizModeView.swift in Sources */,
@@ -455,9 +444,8 @@
 				2E746F772E1E206400E6F8E0 /* FavoritesView.swift in Sources */,
 				2E746F792E1E206400E6F8E0 /* QuizModeButton.swift in Sources */,
 				2E746F7B2E1E20EB00E6F8E0 /* Chinese_FlashcardsApp.swift in Sources */,
-				2E79D6DE2DFDBB3D00CFF202 /* Flashcards_ChineseApp.swift in Sources */,
-				2E746F892E1E21A500E6F8E0 /* FlashcardDeck.swift in Sources */,
-				2E746F8A2E1E21A500E6F8E0 /* Flashcard.swift in Sources */,
+				2E746F892E1E21A500E6F8E0 /* Flashcards_Chinese/Models/FlashcardDeck.swift in Sources */,
+				2E746F8A2E1E21A500E6F8E0 /* Flashcards_Chinese/Models/Flashcard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,7 +453,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E79D6F02DFDBB4000CFF202 /* Flashcards_ChineseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
