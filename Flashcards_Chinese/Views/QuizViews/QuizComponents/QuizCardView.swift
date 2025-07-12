@@ -36,12 +36,12 @@ struct QuizCardView: View {
     private var chineseFontSize: CGFloat {
         let length = card.chinese.count
         switch length {
-        case 0...2: return 60
-        case 3...4: return 50
-        case 5...6: return 40
-        case 7...8: return 35
-        case 9...10: return 30
-        default: return 25
+        case 0...2: return 50
+        case 3...4: return 42
+        case 5...6: return 35
+        case 7...8: return 30
+        case 9...10: return 25
+        default: return 20
         }
     }
     

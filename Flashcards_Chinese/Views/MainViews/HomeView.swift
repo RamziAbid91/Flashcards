@@ -27,7 +27,7 @@ struct HomeView: View {
                     .padding(.bottom, 5)
                 
                 Text("中文一点通")
-                    .font(.system(size: 34, weight: .bold, design: .rounded))
+                    .font(.system(size: 28, weight: .bold, design: .rounded))
                     .foregroundColor(Theme.primaryColor)
                 
                 Text("Chinese Flashcards")

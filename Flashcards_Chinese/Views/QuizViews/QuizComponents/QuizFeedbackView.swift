@@ -49,22 +49,29 @@ struct QuizFeedbackView: View {
             
             // MARK: - Example Section
             if !example.isEmpty {
-                VStack(alignment: .leading, spacing: 12) {
+                VStack(alignment: .center, spacing: 12) {
                     Text("EXAMPLE")
                         .font(.caption.weight(.bold))
                         .foregroundColor(Theme.tertiaryTextColor)
                     
-                    VStack(alignment: .leading, spacing: 6) {
+                    VStack(alignment: .center, spacing: 6) {
                         Text(example)
-                            .font(.body).foregroundColor(Theme.textColor)
+                            .font(.body)
+                            .foregroundColor(Theme.textColor)
+                            .multilineTextAlignment(.center)
                         Text(examplePinyin)
-                            .font(.callout).foregroundColor(Theme.pinyinColor)
+                            .font(.callout)
+                            .foregroundColor(Theme.pinyinColor)
+                            .multilineTextAlignment(.center)
                         Text(exampleTranslation)
-                            .font(.callout).italic().foregroundColor(Theme.tertiaryTextColor)
+                            .font(.callout)
+                            .italic()
+                            .foregroundColor(Theme.tertiaryTextColor)
+                            .multilineTextAlignment(.center)
                     }
                 }
                 .padding()
-                .frame(maxWidth: .infinity, alignment: .leading)
+                .frame(maxWidth: .infinity, alignment: .center)
                 .background(Theme.secondaryBackgroundColor)
                 .cornerRadius(12)
             }

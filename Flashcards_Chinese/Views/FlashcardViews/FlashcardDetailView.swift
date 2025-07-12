@@ -40,7 +40,7 @@ struct FlashcardDetailView: View {
     private var characterSection: some View {
         VStack(spacing: 10) {
             Text(card.chinese)
-                .font(.system(size: 60, weight: .bold))
+                .font(.system(size: 50, weight: .bold))
                 .foregroundColor(Theme.textColor)
             
             Text(card.pinyin)
@@ -85,17 +85,27 @@ struct FlashcardDetailView: View {
     }
     
     private var exampleSection: some View {
-        VStack(alignment: .leading, spacing: 10) {
+        VStack(alignment: .center, spacing: 10) {
             Text("Example Usage").font(.headline).foregroundColor(Theme.textColor)
             
-            VStack(alignment: .leading, spacing: 4) {
-                Text(card.exampleSentence).font(.body).foregroundColor(Theme.textColor)
-                Text(card.examplePinyin).font(.subheadline).foregroundColor(Theme.pinyinColor)
-                Text(card.exampleTranslation).font(.subheadline).italic().foregroundColor(Theme.secondaryTextColor)
+            VStack(alignment: .center, spacing: 4) {
+                Text(card.exampleSentence)
+                    .font(.body)
+                    .foregroundColor(Theme.textColor)
+                    .multilineTextAlignment(.center)
+                Text(card.examplePinyin)
+                    .font(.subheadline)
+                    .foregroundColor(Theme.pinyinColor)
+                    .multilineTextAlignment(.center)
+                Text(card.exampleTranslation)
+                    .font(.subheadline)
+                    .italic()
+                    .foregroundColor(Theme.secondaryTextColor)
+                    .multilineTextAlignment(.center)
             }
         }
         .padding()
-        .frame(maxWidth: .infinity, alignment: .leading)
+        .frame(maxWidth: .infinity, alignment: .center)
         .background(Theme.cardBackgroundColor)
         .cornerRadius(12)
         .shadow(color: Theme.cardShadowColor, radius: 4, x: 0, y: 2)

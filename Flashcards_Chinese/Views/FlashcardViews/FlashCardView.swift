@@ -69,7 +69,7 @@ private struct FrontView: View {
     private var mainContent: some View {
         VStack(spacing: 8) {
             Text(card.chinese)
-                .font(.system(size: 80, weight: .bold, design: .rounded))
+                .font(.system(size: 65, weight: .bold, design: .rounded))
                 .foregroundColor(Theme.textColor)
                 .lineLimit(nil)
                 .minimumScaleFactor(0.6)

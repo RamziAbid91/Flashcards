@@ -13,7 +13,7 @@ struct SettingsView: View {
     // App Storage for user preferences
     @AppStorage("showFrenchInFlashcards") private var showFrench = false
     @AppStorage("showShuffleButton") private var showShuffleButton = false
-    @AppStorage("enableHaptics") private var enableHaptics = true
+    @AppStorage("Vibration Effects") private var enableHaptics = true
     
     // State for alerts
     @State private var showingResetAlert = false
