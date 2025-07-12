@@ -380,6 +380,9 @@ class FlashcardDeck: ObservableObject {
             Flashcard(chinese: "社死", pinyin: "shèsǐ", english: "Social death/extreme embarrassment", french: "Mort sociale/embarras extrême", pronunciation: "shuh-ssuh", category: "Social Media Slang", difficulty: 2, exampleSentence: "那真是大型社死现场。", examplePinyin: "Nà zhēnshi dàxíng shèsǐ xiànchǎng.", exampleTranslation: "That was a majorly embarrassing scene."),
 
             // Quebecois (new category)
+            
+            Flashcard(chinese: "有困难", pinyin: "yǒu kùnnán", english: "To struggle", french: "Avoir de la misère", pronunciation: "yo coon-nan", category: "Quebecois", difficulty: 2, exampleSentence: "我在学法语时有点困难。", examplePinyin: "Wǒ zài xué fǎyǔ shí yǒudiǎn kùnnán.", exampleTranslation: "I'm having some trouble learning French. / J'ai de la misère à apprendre le français."),
+            Flashcard(chinese: "疯了", pinyin: "fēngle", english: "Crazy/Nuts", french: "Capote", pronunciation: "fung-luh", category: "Quebecois", difficulty: 2, exampleSentence: "他对这部电影疯了。", examplePinyin: "Tā duì zhè bù diànyǐng fēngle.", exampleTranslation: "He's crazy about this movie. / Y capote sur ce film-là."),
             Flashcard(chinese: "很棒", pinyin: "hěn bàng", english: "Awesome", french: "Sur la coche", pronunciation: "hen-bahng", category: "Quebecois", difficulty: 2, exampleSentence: "这个演出真的很棒！", examplePinyin: "Zhège yǎnchū zhēn de hěn bàng!", exampleTranslation: "The show was really awesome! / Le spectacle était vraiment sur la coche !"),
 
             Flashcard(chinese: "受够了", pinyin: "shòu gòu le", english: "Fed up", french: "Être tanné", pronunciation: "shoh-go-luh", category: "Quebecois", difficulty: 2, exampleSentence: "我受够这份工作了。", examplePinyin: "Wǒ shòu gòu zhè fèn gōngzuò le.", exampleTranslation: "I'm fed up with this job. / J'suis tanné de cette job-là."),
@@ -392,9 +395,9 @@ class FlashcardDeck: ObservableObject {
 
             Flashcard(chinese: "你懂吗？", pinyin: "nǐ dǒng ma?", english: "You know what I mean?", french: "Tsé veux dire", pronunciation: "nee-dong-ma", category: "Quebecois", difficulty: 2, exampleSentence: "这个有点奇怪，你懂吗？", examplePinyin: "Zhège yǒudiǎn qíguài, nǐ dǒng ma?", exampleTranslation: "It's kind of weird, you know? / C'est un peu bizarre, tsé veux dire."),
 
-            Flashcard(chinese: "非常忙", pinyin: "fēicháng máng", english: "Slammed", french: "Avoir de la broue dans le toupet", pronunciation: "fay-chahng mahng", category: "Quebecois", difficulty: 3, exampleSentence: "我最近非常忙，没时间休息。", examplePinyin: "Wǒ zuìjìn fēicháng máng, méi shíjiān xiūxí.", exampleTranslation: "I've been slammed lately. / J'suis ben occupé, j'ai de la broue dans l'toupet."),
+          
 
-            Flashcard(chinese: "有困难", pinyin: "yǒu kùnnán", english: "To struggle", french: "Avoir de la misère", pronunciation: "yo coon-nan", category: "Quebecois", difficulty: 2, exampleSentence: "我在学法语时有点困难。", examplePinyin: "Wǒ zài xué fǎyǔ shí yǒudiǎn kùnnán.", exampleTranslation: "I'm having some trouble learning French. / J'ai de la misère à apprendre le français."),
+          
 
             Flashcard(chinese: "精疲力尽", pinyin: "jīng pí lì jìn", english: "Exhausted", french: "Avoir le trou du cul en d'sous du bras", pronunciation: "jing pee lee jin", category: "Quebecois", difficulty: 4, exampleSentence: "我搬家之后精疲力尽了。", examplePinyin: "Wǒ bānjiā zhīhòu jīng pí lì jìn le.", exampleTranslation: "I'm exhausted after moving. / Après le déménagement, j'avais le trou du cul en d'sous du bras."),
 
@@ -414,7 +417,63 @@ class FlashcardDeck: ObservableObject {
 
             Flashcard(chinese: "人多", pinyin: "rén duō", english: "Packed (crowded)", french: "Y'a gros de monde icitte", pronunciation: "ren dwo", category: "Quebecois", difficulty: 2, exampleSentence: "节日市场人特别多。", examplePinyin: "Jiérì shìchǎng rén tèbié duō.", exampleTranslation: "The holiday market was packed. / Y'avait gros de monde icitte au marché de Noël."),
 
-            Flashcard(chinese: "很冷", pinyin: "hěn lěng", english: "Freezing", french: "Faire frette", pronunciation: "hen lung", category: "Quebecois", difficulty: 2, exampleSentence: "外面真他妈冷。", examplePinyin: "Wàimiàn zhēn tāmā lěng.", exampleTranslation: "It's freezing out there. / Y fait frette en maudit dehors."),
+            Flashcard(chinese: "处理", pinyin: "chǔ lǐ", english: "Deal with", french: "Dealer avec une situation", pronunciation: "choo lee", category: "Quebecois", difficulty: 2, exampleSentence: "我不知道怎么处理这个问题。", examplePinyin: "Wǒ bù zhīdào zěnme chǔlǐ zhège wèntí.", exampleTranslation: "I don't know how to deal with this problem. / Je sais pas comment dealer avec cette situation."),
+
+            Flashcard(chinese: "累", pinyin: "lèi", english: "Tired", french: "Être brûlé", pronunciation: "lay", category: "Quebecois", difficulty: 1, exampleSentence: "我今天真的很累。", examplePinyin: "Wǒ jīntiān zhēn de hěn lèi.", exampleTranslation: "I'm really tired today. / Je suis brûlé aujourd'hui."),
+
+            Flashcard(chinese: "冒险", pinyin: "mào xiǎn", english: "Take a risk", french: "Prendre une chance", pronunciation: "mao shyen", category: "Quebecois", difficulty: 2, exampleSentence: "有时候你得冒险。", examplePinyin: "Yǒu shíhou nǐ děi màoxiǎn.", exampleTranslation: "Sometimes you have to take a risk. / Des fois faut prendre une chance."),
+
+            Flashcard(chinese: "散步", pinyin: "sàn bù", english: "Take a walk", french: "Prendre une marche", pronunciation: "san boo", category: "Quebecois", difficulty: 1, exampleSentence: "我们去散步吧。", examplePinyin: "Wǒmen qù sànbù ba.", exampleTranslation: "Let's go for a walk. / On va prendre une marche."),
+
+            Flashcard(chinese: "玩得开心", pinyin: "wán de kāi xīn", english: "Have fun", french: "Avoir du fun", pronunciation: "wahn duh kai sheen", category: "Quebecois", difficulty: 1, exampleSentence: "祝你玩得开心！", examplePinyin: "Zhù nǐ wán de kāixīn!", exampleTranslation: "Have fun! / Amuse-toi, aie du fun!"),
+
+            Flashcard(chinese: "无聊", pinyin: "wú liáo", english: "Boring", french: "C'est plate", pronunciation: "woo lyaow", category: "Quebecois", difficulty: 1, exampleSentence: "这部电影太无聊了。", examplePinyin: "Zhè bù diànyǐng tài wúliáo le.", exampleTranslation: "This movie is too boring. / Ce film-là est plate."),
+
+            Flashcard(chinese: "锁门", pinyin: "suǒ mén", english: "Lock the door", french: "Barrer une porte", pronunciation: "swaw men", category: "Quebecois", difficulty: 1, exampleSentence: "请你锁门好吗？", examplePinyin: "Qǐng nǐ suǒmén hǎo ma?", exampleTranslation: "Can you lock the door? / Peux-tu barrer la porte?"),
+            Flashcard(chinese: "零用钱", pinyin: "líng yòng qián", english: "Spare change", french: "Du change", pronunciation: "ling yong chyen", category: "Quebecois", difficulty: 2, exampleSentence: "你有一点零用钱吗？", examplePinyin: "Nǐ yǒu yīdiǎn líng yòng qián ma?", exampleTranslation: "Do you have some spare change? / T'as du change?"),
+
+            Flashcard(chinese: "昂贵", pinyin: "áng guì", english: "Expensive", french: "Dispendieux", pronunciation: "ahng gway", category: "Quebecois", difficulty: 2, exampleSentence: "这个包太昂贵了。", examplePinyin: "Zhège bāo tài áng guì le.", exampleTranslation: "This bag is too expensive. / Ce sac est trop dispendieux."),
+
+            Flashcard(chinese: "付现金", pinyin: "fù xiàn jīn", english: "Pay in cash", french: "Payer cash", pronunciation: "foo shyen jeen", category: "Quebecois", difficulty: 2, exampleSentence: "我可以付现金吗？", examplePinyin: "Wǒ kěyǐ fù xiàn jīn ma?", exampleTranslation: "Can I pay in cash? / Je peux payer cash?"),
+
+            Flashcard(chinese: "睾丸", pinyin: "gāo wán", english: "Testicles", french: "Gosses", pronunciation: "gaow wahn", category: "Quebecois", difficulty: 3, exampleSentence: "他受伤了，尤其是睾丸。", examplePinyin: "Tā shòushāng le, yóuqí shì gāo wán.", exampleTranslation: "He got hurt, especially in the testicles. / Il s'est blessé, surtout aux gosses."),
+
+            Flashcard(chinese: "洋娃娃", pinyin: "yáng wá wa", english: "Doll", french: "Catin", pronunciation: "yang wah wah", category: "Quebecois", difficulty: 1, exampleSentence: "她有很多洋娃娃。", examplePinyin: "Tā yǒu hěn duō yáng wá wa.", exampleTranslation: "She has a lot of dolls. / Elle a plein de catins."),
+
+            Flashcard(chinese: "不可思议", pinyin: "bù kě sī yì", english: "Amazing", french: "Écœurant", pronunciation: "boo kuh srr yee", category: "Quebecois", difficulty: 2, exampleSentence: "这表演真是不可思议！", examplePinyin: "Zhè biǎoyǎn zhēn shì bù kě sī yì!", exampleTranslation: "This performance is amazing! / Ce spectacle est écœurant!"),
+
+            Flashcard(chinese: "善良", pinyin: "shàn liáng", english: "Kind", french: "Fin", pronunciation: "shan lyang", category: "Quebecois", difficulty: 1, exampleSentence: "他是个很善良的人。", examplePinyin: "Tā shì ge hěn shàn liáng de rén.", exampleTranslation: "He's a very kind person. / C'est quelqu'un de très fin."),
+
+            Flashcard(chinese: "当然", pinyin: "dāng rán", english: "Of course", french: "Mets-en", pronunciation: "dahng rahn", category: "Quebecois", difficulty: 1, exampleSentence: "你喜欢巧克力吗？当然！", examplePinyin: "Nǐ xǐhuan qiǎokèlì ma? Dāngrán!", exampleTranslation: "Do you like chocolate? Of course! / T'aimes le chocolat? Mets-en!"),
+
+            Flashcard(chinese: "一点也不", pinyin: "yī diǎn yě bù", english: "Not at all", french: "Pantoute", pronunciation: "yee dyan yeh boo", category: "Quebecois", difficulty: 2, exampleSentence: "我一点也不喜欢这个。", examplePinyin: "Wǒ yīdiǎn yě bù xǐhuan zhège.", exampleTranslation: "I don't like it at all. / J'aime pas ça pantoute."),
+
+            Flashcard(chinese: "检查", pinyin: "jiǎn chá", english: "Check", french: "Checker", pronunciation: "jyen chah", category: "Quebecois", difficulty: 1, exampleSentence: "请你检查一下这份文件。", examplePinyin: "Qǐng nǐ jiǎnchá yīxià zhè fèn wénjiàn.", exampleTranslation: "Please check this document. / Peux-tu checker ce document?"),
+            Flashcard(chinese: "走路", pinyin: "zǒu lù", english: "Take a walk", french: "Prendre une marche", pronunciation: "dzoh-loo", category: "Quebecois", difficulty: 2, exampleSentence: "我们去外面走路吧。", examplePinyin: "Wǒmen qù wàimiàn zǒulù ba.", exampleTranslation: "Let's go take a walk. / On va prendre une marche."),
+            Flashcard(chinese: "好玩", pinyin: "hǎo wán", english: "Fun", french: "Avoir du fun", pronunciation: "how-wahn", category: "Quebecois", difficulty: 2, exampleSentence: "这场派对很好玩！", examplePinyin: "Zhè chǎng pàiduì hěn hǎowán!", exampleTranslation: "This party is fun! / Ce party est full fun !"),
+            Flashcard(chinese: "无聊", pinyin: "wú liáo", english: "Boring", french: "C'est plate", pronunciation: "woo-lee-ow", category: "Quebecois", difficulty: 2, exampleSentence: "这堂课好无聊。", examplePinyin: "Zhè táng kè hǎo wúliáo.", exampleTranslation: "This class is so boring. / Ce cours est tellement plate."),
+            Flashcard(chinese: "受够了", pinyin: "shòu gòu le", english: "Fed up", french: "Être tanné", pronunciation: "shoh-go-luh", category: "Quebecois", difficulty: 2, exampleSentence: "我真的受够了！", examplePinyin: "Wǒ zhēn de shòugòule!", exampleTranslation: "I'm really fed up! / J'suis ben tanné !"),
+            Flashcard(chinese: "锁门", pinyin: "suǒ mén", english: "Lock the door", french: "Barrer une porte", pronunciation: "swaw-muhn", category: "Quebecois", difficulty: 2, exampleSentence: "你出门时记得锁门。", examplePinyin: "Nǐ chūmén shí jìde suǒmén.", exampleTranslation: "Remember to lock the door when you leave. / N'oublie pas de barrer la porte."),
+            Flashcard(chinese: "你好", pinyin: "nǐ hǎo", english: "Hello", french: "Allo", pronunciation: "nee-how", category: "Quebecois", difficulty: 1, exampleSentence: "你好！你今天怎么样？", examplePinyin: "Nǐ hǎo! Nǐ jīntiān zěnme yàng?", exampleTranslation: "Hello! How are you today? / Allo ! Comment ça va aujourd'hui ?"),
+
+            Flashcard(chinese: "早上好", pinyin: "zǎoshang hǎo", english: "Good morning", french: "Bon matin", pronunciation: "dzaow-shang haow", category: "Quebecois", difficulty: 1, exampleSentence: "早上好！你吃早餐了吗？", examplePinyin: "Zǎoshang hǎo! Nǐ chī zǎocān le ma?", exampleTranslation: "Good morning! Did you have breakfast? / Bon matin ! As-tu déjeuné ?"),
+
+            Flashcard(chinese: "不用谢", pinyin: "bù yòng xiè", english: "You're welcome", french: "Bienvenue", pronunciation: "boo yohng shyeh", category: "Quebecois", difficulty: 2, exampleSentence: "谢谢你！不用谢。", examplePinyin: "Xièxie nǐ! Bù yòng xiè.", exampleTranslation: "Thank you! You're welcome. / Merci ! Bienvenue."),
+
+            Flashcard(chinese: "没事", pinyin: "méi shì", english: "It's fine", french: "Correct", pronunciation: "mei shir", category: "Quebecois", difficulty: 1, exampleSentence: "你迟到了？没事。", examplePinyin: "Nǐ chídào le? Méi shì.", exampleTranslation: "You're late? It's fine. / T'es en retard ? C'est correct."),
+
+            Flashcard(chinese: "周末", pinyin: "zhōumò", english: "Weekend", french: "Fin de semaine", pronunciation: "joe-moh", category: "Quebecois", difficulty: 1, exampleSentence: "这个周末你有空吗？", examplePinyin: "Zhège zhōumò nǐ yǒu kòng ma?", exampleTranslation: "Are you free this weekend? / As-tu du temps cette fin de semaine ?"),
+
+            Flashcard(chinese: "待会儿见", pinyin: "dāihuǐr jiàn", english: "See you later", french: "À tantôt", pronunciation: "dai-hwair jyen", category: "Quebecois", difficulty: 1, exampleSentence: "我得走了，待会儿见！", examplePinyin: "Wǒ děi zǒu le, dāihuǐr jiàn!", exampleTranslation: "I have to go, see you later! / Je dois partir, à tantôt !"),
+
+            Flashcard(chinese: "这里", pinyin: "zhèlǐ", english: "Here", french: "Icitte", pronunciation: "juh-lee", category: "Quebecois", difficulty: 2, exampleSentence: "把书放在这里。", examplePinyin: "Bǎ shū fàng zài zhèlǐ.", exampleTranslation: "Put the book here. / Mets le livre icitte."),
+
+            Flashcard(chinese: "所以", pinyin: "suǒyǐ", english: "So / therefore", french: "Faque", pronunciation: "swaw-yee", category: "Quebecois", difficulty: 2, exampleSentence: "下雨了，所以我们不去了。", examplePinyin: "Xià yǔ le, suǒyǐ wǒmen bú qù le.", exampleTranslation: "It's raining, so we're not going. / Il pleut, faque on n'y va pas."),
+
+            Flashcard(chinese: "到现在", pinyin: "dào xiànzài", english: "Until now", french: "À date", pronunciation: "daow syen-dzai", category: "Quebecois", difficulty: 2, exampleSentence: "到现在都很顺利。", examplePinyin: "Dào xiànzài dōu hěn shùnlì.", exampleTranslation: "Everything has gone well so far. / À date, tout va bien."),
+
+            Flashcard(chinese: "早餐", pinyin: "zǎocān", english: "Breakfast", french: "Déjeuner", pronunciation: "dzaow-tsan", category: "Quebecois", difficulty: 1, exampleSentence: "我每天都吃早餐。", examplePinyin: "Wǒ měitiān dōu chī zǎocān.", exampleTranslation: "I eat breakfast every day. / Je prends mon déjeuner chaque jour."),
+
 
             Flashcard(chinese: "开车兜风", pinyin: "kāi chē dōu fēng", english: "Go for a drive", french: "Faire du char", pronunciation: "kai chuh doh feng", category: "Quebecois", difficulty: 2, exampleSentence: "我们周日开车兜风吧。", examplePinyin: "Wǒmen zhōurì kāichē dōu fēng ba.", exampleTranslation: "Let's go for a drive Sunday. / On va faire du char dimanche."),
 
@@ -436,7 +495,7 @@ class FlashcardDeck: ObservableObject {
             Flashcard(chinese: "车", pinyin: "chē", english: "Car", french: "Char", pronunciation: "chuh", category: "Quebecois", difficulty: 1, exampleSentence: "我的车坏了。", examplePinyin: "Wǒ de chē huài le.", exampleTranslation: "My car is broken. / Mon char est brisé."),
             
             Flashcard(chinese: "甜甜圈", pinyin: "tiántiánquān", english: "Donut", french: "Beigne", pronunciation: "tee-an-tee-an-chwan", category: "Quebecois", difficulty: 2, exampleSentence: "我想要一个巧克力甜甜圈。", examplePinyin: "Wǒ xiǎng yào yī gè qiǎokèlì tiántiánquān.", exampleTranslation: "I want a chocolate donut. / J'veux une beigne au chocolat."),
-            Flashcard(chinese: "小馅饼", pinyin: "xiǎoxiànbǐng", english: "Meat pie", french: "Tourtière", pronunciation: "shyow-shyen-bing", category: "Quebecois", difficulty: 2, exampleSentence: "圣诞节我们吃肉馅饼。", examplePinyin: "Shèngdànjié wǒmen chī ròu xiànbǐng.", exampleTranslation: "We eat meat pie at Christmas. / On mange de la tourtière à Noël."),
+           
             Flashcard(chinese: "没关系", pinyin: "méiguānxi", english: "It's okay/That's fine", french: "C'est correct", pronunciation: "may-gwan-she", category: "Quebecois", difficulty: 2, exampleSentence: "没关系，没问题。", examplePinyin: "Méiguānxi, méi wèntí.", exampleTranslation: "It's okay, no problem. / C'est correct, pas de problème."),
             Flashcard(chinese: "不错", pinyin: "bùcuò", english: "Not bad/pretty good", french: "Pas pire", pronunciation: "boo-tswaw", category: "Quebecois", difficulty: 2, exampleSentence: "这部电影不错。", examplePinyin: "Zhè bù diànyǐng bùcuò.", exampleTranslation: "This movie wasn't bad. / Ce film-là était pas pire."),
             Flashcard(chinese: "很有趣", pinyin: "hěn yǒuqù", english: "It's fun/That's cool", french: "C'est le fun", pronunciation: "hen-yo-chew", category: "Quebecois", difficulty: 2, exampleSentence: "旅行很有趣。", examplePinyin: "Lǚxíng hěn yǒuqù.", exampleTranslation: "It's fun to travel. / C'est le fun de voyager."),
@@ -460,7 +519,7 @@ class FlashcardDeck: ObservableObject {
             Flashcard(chinese: "袜子", pinyin: "wàzi", english: "Socks", french: "Bas", pronunciation: "wah-dzuh", category: "Quebecois", difficulty: 2, exampleSentence: "我的袜子湿了。", examplePinyin: "Wǒ de wàzi shī le.", exampleTranslation: "My socks are wet. / Mes bas sont mouillés."),
             Flashcard(chinese: "内衣", pinyin: "nèiyī", english: "Underwear", french: "Bobettes", pronunciation: "nay-yee", category: "Quebecois", difficulty: 2, exampleSentence: "我需要新内衣。", examplePinyin: "Wǒ xūyào xīn nèiyī.", exampleTranslation: "I need new underwear. / J'ai besoin de nouvelles bobettes."),
             Flashcard(chinese: "不要放弃", pinyin: "bù yào fàngqì", english: "Don't give up/Hang in there", french: "Lâche pas la patate", pronunciation: "boo-yow-fahng-chee", category: "Quebecois", difficulty: 2, exampleSentence: "不要放弃，你会成功的！", examplePinyin: "Bù yào fàngqì, nǐ huì chénggōng de!", exampleTranslation: "Don't give up, you'll succeed! / Lâche pas la patate, tu vas réussir !"),
-            Flashcard(chinese: "疯了", pinyin: "fēngle", english: "Crazy/Nuts", french: "Capote", pronunciation: "fung-luh", category: "Quebecois", difficulty: 2, exampleSentence: "他对这部电影疯了。", examplePinyin: "Tā duì zhè bù diànyǐng fēngle.", exampleTranslation: "He's crazy about this movie. / Y capote sur ce film-là."),
+    
             Flashcard(chinese: "钱", pinyin: "qián", english: "Money", french: "Piastre", pronunciation: "chee-an", category: "Quebecois", difficulty: 2, exampleSentence: "这个要一百块钱。", examplePinyin: "Zhège yào yībǎi kuài qián.", exampleTranslation: "It costs a hundred bucks. / Ça coûte cent piastres."),
             Flashcard(chinese: "喝酒", pinyin: "hējiǔ", english: "To drink/party", french: "Prendre un coup", pronunciation: "huh-jyo", category: "Quebecois", difficulty: 2, exampleSentence: "我们今晚去喝酒。", examplePinyin: "Wǒmen jīnwǎn qù hējiǔ.", exampleTranslation: "We're going to drink tonight. / On va prendre un coup à soir."),
             Flashcard(chinese: "白痴", pinyin: "báichī", english: "Idiot/Dummy", french: "Nono", pronunciation: "bai-chih", category: "Quebecois", difficulty: 2, exampleSentence: "别做白痴了！", examplePinyin: "Bié zuò báichī le!", exampleTranslation: "Stop acting like an idiot! / Arrête d'être un nono !"),

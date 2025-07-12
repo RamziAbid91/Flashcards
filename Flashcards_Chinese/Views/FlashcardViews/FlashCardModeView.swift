@@ -104,13 +104,8 @@ struct FlashcardModeView: View {
             .padding(.horizontal).padding(.top, 10)
             
             if !filteredCards.isEmpty {
-                GeometryReader { geometry in
-                    ZStack(alignment: .leading) {
-                        Rectangle().frame(width: geometry.size.width, height: 4).foregroundColor(Theme.secondaryBackgroundColor)
-                        Rectangle().frame(width: geometry.size.width * CGFloat(Double(currentIndex + 1) / Double(filteredCards.count)), height: 4).foregroundColor(Theme.primaryColor)
-                            .animation(.spring(), value: currentIndex)
-                    }
-                }.frame(height: 4).clipShape(Capsule()).padding(.horizontal)
+                DraggableProgressBar(value: $currentIndex, maxValue: filteredCards.count)
+                    .frame(height: 16)
             }
         }
         .sheet(isPresented: $showingCategoryPicker) { CategoryPickerView(selectedCategory: $selectedCategory, categories: deck.categories) }
@@ -261,4 +256,38 @@ struct FlashcardModeView: View {
     }
     private func resetCardState() { isFlipped = false; dragOffset = .zero }
     private func openAppSettings() { if let url = URL(string: UIApplication.openSettingsURLString) { UIApplication.shared.open(url) } }
+}
+
+struct DraggableProgressBar: View {
+    @Binding var value: Int
+    let maxValue: Int
+    var barColor: Color = Theme.primaryColor
+    var backgroundColor: Color = Theme.secondaryBackgroundColor
+    var height: CGFloat = 8
+    
+    var body: some View {
+        GeometryReader { geometry in
+            ZStack(alignment: .leading) {
+                Rectangle()
+                    .fill(backgroundColor)
+                    .frame(width: geometry.size.width, height: height)
+                Rectangle()
+                    .fill(barColor)
+                    .frame(width: geometry.size.width * CGFloat(Double(value + 1) / Double(maxValue)), height: height)
+            }
+            .cornerRadius(height / 2)
+            .gesture(
+                DragGesture(minimumDistance: 0)
+                    .onChanged { gesture in
+                        let percent = min(max(gesture.location.x / geometry.size.width, 0), 1)
+                        let newIndex = Int(percent * CGFloat(maxValue - 1) + 0.5)
+                        if newIndex != value {
+                            value = newIndex
+                        }
+                    }
+            )
+        }
+        .frame(height: height)
+        .padding(.horizontal)
+    }
 }
