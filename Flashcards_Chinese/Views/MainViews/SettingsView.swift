@@ -12,6 +12,7 @@ struct SettingsView: View {
     
     // App Storage for user preferences
     @AppStorage("showFrenchInFlashcards") private var showFrench = false
+    @AppStorage("showShuffleButton") private var showShuffleButton = false
     @AppStorage("enableHaptics") private var enableHaptics = true
     
     // State for alerts
@@ -23,6 +24,8 @@ struct SettingsView: View {
             // MARK: - Display Settings
             Section(header: Text("Display").font(.headline)) {
                 Toggle("Show French Translations", isOn: $showFrench)
+                    .tint(Theme.primaryColor)
+                Toggle("Show Shuffle Button", isOn: $showShuffleButton)
                     .tint(Theme.primaryColor)
             }
 
@@ -38,6 +41,9 @@ struct SettingsView: View {
                     .foregroundColor(Theme.destructiveColor)
                 
                 Button("Restore Default Cards", action: restoreDefaultCards)
+                    .foregroundColor(Theme.primaryColor)
+                
+                Button("Restore Default Order", action: restoreDefaultOrder)
                     .foregroundColor(Theme.primaryColor)
             }
 
@@ -74,10 +80,16 @@ struct SettingsView: View {
     }
       
     private func restoreDefaultCards() {
-        deck.cards = FlashcardDeck.defaultCards()
-        deck.saveCards()
+        deck.resetToDefaultCards()
         HapticManager.shared.notification(type: .success)
         resetAlertMessage = "Default flashcard set has been restored."
+        showingResetAlert = true
+    }
+    
+    private func restoreDefaultOrder() {
+        deck.restoreDefaultOrder()
+        HapticManager.shared.notification(type: .success)
+        resetAlertMessage = "Cards have been restored to default order."
         showingResetAlert = true
     }
 }

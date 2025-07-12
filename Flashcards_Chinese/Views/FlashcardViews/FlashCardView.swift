@@ -24,7 +24,7 @@ struct FlashcardView: View {
             BackView(card: card, deck: deck)
                 .modifier(CardSideModifier(isFront: false, isFlipped: isFlipped, isBackground: isBackground))
         }
-        .frame(height: 400)
+        .frame(minHeight: 400, maxHeight: 500)
     }
 }
 
@@ -37,13 +37,19 @@ private struct FrontView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            favoriteButton.padding(.bottom, 10)
-            Spacer()
-            mainContent
-            Spacer()
-            translationSection
+            favoriteButton
+                .padding(.bottom, 10)
+            
+            ScrollView {
+                VStack(spacing: 8) {
+                    mainContent
+                    translationSection
+                }
+                .padding(.horizontal)
+            }
+            .scrollIndicators(.hidden)
         }
-        .padding()
+        .padding(.vertical, 16)
     }
     
     private var favoriteButton: some View {
@@ -57,6 +63,7 @@ private struct FrontView: View {
                     .animation(.spring(response: 0.3, dampingFraction: 0.4), value: card.isFavorite)
             }
         }
+        .padding(.horizontal)
     }
     
     private var mainContent: some View {
@@ -86,8 +93,13 @@ private struct FrontView: View {
     private var translationSection: some View {
         VStack(spacing: 10) {
             TranslationBox(language: "English", meaning: card.english)
-            if showFrench && !card.french.isEmpty { TranslationBox(language: "French", meaning: card.french) }
-            Text("Tap to see example").font(.caption2).foregroundColor(Theme.placeholderTextColor).padding(.top, 5)
+            if showFrench && !card.french.isEmpty { 
+                TranslationBox(language: "French", meaning: card.french) 
+            }
+            Text("Tap to see example")
+                .font(.caption2)
+                .foregroundColor(Theme.placeholderTextColor)
+                .padding(.top, 5)
         }
     }
     
@@ -105,14 +117,20 @@ private struct BackView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            favoriteButton.padding(.bottom, 10)
-            Spacer()
-            exampleContent
-            Spacer()
-            playButton
-            Text("Tap to flip back").font(.caption2).foregroundColor(Theme.placeholderTextColor).padding(.top, 10)
+            favoriteButton
+                .padding(.bottom, 10)
+            
+            ScrollView {
+                VStack(spacing: 12) {
+                    exampleContent
+                    playButton
+                    Text("Tap to flip back").font(.caption2).foregroundColor(Theme.placeholderTextColor).padding(.top, 10)
+                }
+                .padding(.horizontal)
+            }
+            .scrollIndicators(.hidden)
         }
-        .padding()
+        .padding(.vertical)
         .alert("Voice Error", isPresented: $showingVoiceAlert) { Button("OK") {}; Button("Settings") { if let url = URL(string: UIApplication.openSettingsURLString) { UIApplication.shared.open(url) } } } message: { Text(voiceAlertMessage) }
     }
     
@@ -126,6 +144,7 @@ private struct BackView: View {
                     .animation(.spring(response: 0.3, dampingFraction: 0.4), value: card.isFavorite)
             }
         }
+        .padding(.horizontal)
     }
     
     private var exampleContent: some View {
@@ -198,13 +217,13 @@ private struct CardSideModifier: ViewModifier {
     let isFront: Bool; let isFlipped: Bool; let isBackground: Bool
   
     func body(content: Content) -> some View {
-        content.frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(isBackground ? Theme.secondaryBackgroundColor : Theme.cardBackgroundColor)
-            .cornerRadius(20)
-            .shadow(color: Theme.cardShadowColor, radius: isBackground ? 3 : 8, x: 0, y: isBackground ? 2 : 4)
-            .overlay(RoundedRectangle(cornerRadius: 20).stroke(Theme.cardBorderColor, lineWidth: isBackground ? 0.5 : 1))
-            .opacity(isFront ? (isFlipped ? 0 : 1) : (isFlipped ? 1 : 0))
-            .rotation3DEffect(.degrees(isFront ? (isFlipped ? -180 : 0) : (isFlipped ? 0 : 180)), axis: (x: 0, y: 1, z: 0))
+        content
+            .background(Theme.cardBackgroundColor)
+            .cornerRadius(16)
+            .shadow(color: Theme.cardShadowColor, radius: isBackground ? 2 : 8, x: 0, y: isBackground ? 1 : 4)
+            .rotation3DEffect(.degrees(isFlipped ? (isFront ? -180 : 0) : (isFront ? 0 : 180)), axis: (x: 0, y: 1, z: 0))
+            .opacity(isFlipped ? (isFront ? 0 : 1) : (isFront ? 1 : 0))
+            .animation(.spring(response: 0.35, dampingFraction: 0.65), value: isFlipped)
     }
 }
 

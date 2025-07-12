@@ -19,9 +19,11 @@ struct FlashcardModeView: View {
     @State private var selectedCategory: String
     
     @AppStorage("showFrenchInFlashcards") private var showFrench = false
+    @AppStorage("showShuffleButton") private var showShuffleButton = false
     @State private var showingCategoryPicker = false
     @State private var showingVoiceAlert = false
     @State private var voiceAlertMessage = ""
+    @State private var isShuffleModeEnabled = false
     
     private let synthesizer = AVSpeechSynthesizer()
     
@@ -134,7 +136,9 @@ struct FlashcardModeView: View {
                         flipCard()
                     }
             }
-            .frame(height: 420).padding(.horizontal, 15)
+            .frame(minHeight: 420, maxHeight: 500)
+            .padding(.horizontal, 15)
+            .padding(.bottom, 20)
         }
     }
     
@@ -149,27 +153,84 @@ struct FlashcardModeView: View {
     private var controlsFooter: some View {
         VStack(spacing: 15) {
             HStack(spacing: 20) {
-                ControlButton(icon: "arrow.backward", action: previousCard).disabled(currentIndex == 0 || filteredCards.isEmpty)
-                ControlButton(icon: "arrow.up.arrow.down", action: flipCard).disabled(filteredCards.isEmpty)
-                ControlButton(icon: "speaker.wave.2.fill", action: speakCurrentWord).disabled(filteredCards.isEmpty)
+                if currentIndex > 0 {
+                    ControlButton(icon: "arrow.backward", action: previousCard, showFrench: showFrench).disabled(filteredCards.isEmpty)
+                } else {
+                    Circle().fill(Color.clear).frame(width: 52, height: 52)
+                }
+                ControlButton(icon: "arrow.up.arrow.down", action: flipCard, showFrench: showFrench).disabled(filteredCards.isEmpty)
+                ControlButton(icon: "speaker.wave.2.fill", action: speakCurrentWord, showFrench: showFrench).disabled(filteredCards.isEmpty)
+                if showShuffleButton {
+                    ControlButton(
+                        icon: isShuffleModeEnabled ? "shuffle.circle" : "shuffle",
+                        action: toggleShuffleMode,
+                        showFrench: showFrench
+                    ).disabled(filteredCards.isEmpty)
+                }
                 if currentIndex < filteredCards.count - 1 {
-                    ControlButton(icon: "arrow.forward", action: nextCard)
+                    ControlButton(icon: "arrow.forward", action: nextCard, showFrench: showFrench)
                 } else {
                     Circle().fill(Color.clear).frame(width: 52, height: 52)
                 }
             }
             .padding(.horizontal)
             Toggle("Show French Translation", isOn: $showFrench).padding(.horizontal, 30).tint(Theme.primaryColor)
-            Spacer().frame(height: 10)
+            Spacer().frame(height: 20)
         }
+        .padding(.top, 10)
     }
     
     // MARK: - Actions & Logic
     private func toggleAdminPanel() { HapticManager.shared.impact(style: .medium); deck.showAdminPanel.toggle() }
     private func toggleCategoryPicker() { HapticManager.shared.impact(style: .light); showingCategoryPicker.toggle() }
     private func flipCard() { guard !filteredCards.isEmpty else { return }; HapticManager.shared.impact(style: .light); withAnimation(.spring(response: 0.35, dampingFraction: 0.65)) { isFlipped.toggle() } }
-    private func nextCard() { guard !filteredCards.isEmpty, currentIndex < filteredCards.count - 1 else { return }; withAnimation { currentIndex += 1 }; resetCardState() }
+    private func nextCard() { 
+        guard !filteredCards.isEmpty, currentIndex < filteredCards.count - 1 else { return }
+        
+        if isShuffleModeEnabled {
+            // In shuffle mode, go to a random card
+            let randomIndex = Int.random(in: 0..<filteredCards.count)
+            withAnimation { currentIndex = randomIndex }
+        } else {
+            // Normal mode, go to next card
+            withAnimation { currentIndex += 1 }
+        }
+        resetCardState()
+    }
+    
     private func previousCard() { guard !filteredCards.isEmpty, currentIndex > 0 else { return }; withAnimation { currentIndex -= 1 }; resetCardState() }
+    
+    private func toggleShuffleMode() {
+        guard !filteredCards.isEmpty else { return }
+        HapticManager.shared.impact(style: .medium)
+        isShuffleModeEnabled.toggle()
+        
+        if isShuffleModeEnabled {
+            // When enabling shuffle mode, shuffle the cards
+            withAnimation(.spring(response: 0.4, dampingFraction: 0.7)) {
+                deck.shuffleCardsInCategory(selectedCategory)
+                currentIndex = 0
+                resetCardState()
+            }
+        } else {
+            // When disabling shuffle mode, restore default order
+            withAnimation(.spring(response: 0.4, dampingFraction: 0.7)) {
+                deck.restoreDefaultOrder()
+                currentIndex = 0
+                resetCardState()
+            }
+        }
+    }
+    
+    private func shuffleCards() { 
+        guard !filteredCards.isEmpty else { return }
+        HapticManager.shared.impact(style: .medium)
+        withAnimation(.spring(response: 0.4, dampingFraction: 0.7)) {
+            deck.shuffleCardsInCategory(selectedCategory)
+            currentIndex = 0
+            resetCardState()
+        }
+    }
     private func speakCurrentWord() {
         guard !filteredCards.isEmpty else { return }
         let utterance = AVSpeechUtterance(string: filteredCards[currentIndex].chinese)
@@ -188,7 +249,16 @@ struct FlashcardModeView: View {
         }
     }
     private func handleCardCountChange() { if filteredCards.isEmpty { currentIndex = 0 } else if currentIndex >= filteredCards.count { currentIndex = max(0, filteredCards.count - 1) }; isFlipped = false }
-    private func resetToNewCategory() { currentIndex = 0; resetCardState() }
+    private func resetToNewCategory() { 
+        currentIndex = 0 
+        resetCardState() 
+        isShuffleModeEnabled = false
+        
+        // Automatically enable French translation for Quebecois category
+        if selectedCategory.lowercased() == "quebecois" {
+            showFrench = true
+        }
+    }
     private func resetCardState() { isFlipped = false; dragOffset = .zero }
     private func openAppSettings() { if let url = URL(string: UIApplication.openSettingsURLString) { UIApplication.shared.open(url) } }
 }

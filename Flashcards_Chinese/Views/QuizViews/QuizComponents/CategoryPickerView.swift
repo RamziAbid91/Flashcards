@@ -42,7 +42,7 @@ struct CategoryPickerView: View {
                     Button("Done") {
                         dismiss()
                     }
-                    .foregroundColor(Theme.accentColor)
+                    .foregroundColor(Theme.primaryColor)
                 }
             }
         }
@@ -60,7 +60,7 @@ struct CategoryRow: View {
                 // Category icon
                 Image(systemName: iconName)
                     .font(.system(size: 20))
-                    .foregroundColor(isSelected ? Theme.accentColor : Theme.secondaryTextColor)
+                    .foregroundColor(isSelected ? Theme.primaryColor : Theme.secondaryTextColor)
                     .frame(width: 32)
                 
                 // Category name
@@ -73,7 +73,7 @@ struct CategoryRow: View {
                 // Selection indicator
                 if isSelected {
                     Image(systemName: "checkmark.circle.fill")
-                        .foregroundColor(Theme.accentColor)
+                        .foregroundColor(Theme.primaryColor)
                         .font(.system(size: 20))
                         .transition(.scale.combined(with: .opacity))
                 }
@@ -82,7 +82,7 @@ struct CategoryRow: View {
             .padding(.vertical, 12)
             .background(
                 RoundedRectangle(cornerRadius: 12)
-                    .fill(isSelected ? Theme.accentColor.opacity(0.1) : Color.clear)
+                    .fill(isSelected ? Theme.primaryColor.opacity(0.1) : Color.clear)
             )
             .contentShape(Rectangle())
         }
@@ -93,27 +93,37 @@ struct CategoryRow: View {
     private var iconName: String {
         switch category.lowercased() {
         case "all":
-            return "square.grid.2x2"
+            return "square.grid.3x3.fill"
+        case "favorites":
+            return "heart.fill"
         case "greetings":
-            return "hand.wave"
+            return "hand.wave.fill"
         case "numbers":
-            return "number"
+            return "number.circle.fill"
         case "colors":
-            return "paintpalette"
+            return "paintpalette.fill"
         case "food":
-            return "fork.knife"
+            return "fork.knife.circle.fill"
         case "animals":
-            return "pawprint"
+            return "pawprint.fill"
         case "family":
-            return "person.2"
+            return "person.3.fill"
         case "time":
-            return "clock"
+            return "clock.fill"
         case "weather":
-            return "cloud.sun"
+            return "cloud.sun.fill"
         case "travel":
-            return "airplane"
+            return "airplane.circle.fill"
+        case "basic words":
+            return "text.bubble.fill"
+        case "q/s/c/sh/zh words":
+            return "character.bubble.fill"
+        case "hsk 1":
+            return "book.fill"
+        case "social media slang":
+            return "message.circle.fill"
         default:
-            return "folder"
+            return "folder.fill"
         }
     }
 }
@@ -121,6 +131,6 @@ struct CategoryRow: View {
 #Preview {
     CategoryPickerView(
         selectedCategory: .constant("All"),
-        categories: ["All", "Greetings", "Numbers", "Colors", "Food", "Animals", "Family", "Time", "Weather", "Travel"]
+        categories: ["All", "Favorites", "Greetings", "Numbers", "Colors", "Food", "Animals", "Family", "Time", "Weather", "Travel", "Basic Words", "Q/S/C/SH/ZH Words", "HSK 1", "Social Media Slang"]
     )
 } 

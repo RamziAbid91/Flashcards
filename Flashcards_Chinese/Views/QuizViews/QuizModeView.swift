@@ -401,6 +401,11 @@ struct QuizModeView: View {
     }
     
     private func resetQuizAndStart() {
+        // Automatically enable French translation for Quebecois category
+        if selectedCategory.lowercased() == "quebecois" {
+            showFrench = true
+        }
+        
         withAnimation(.spring(response: 0.4, dampingFraction: 0.7)) {
             startNewQuiz()
         }
