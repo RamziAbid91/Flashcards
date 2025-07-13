@@ -29,14 +29,7 @@ struct FlashcardModeView: View {
     
     // MARK: - Computed Properties
     var filteredCards: [Flashcard] {
-        let cards: [Flashcard]
-        if selectedCategory == "Favorites" {
-            cards = deck.favoriteCards
-        } else if selectedCategory == "All" {
-            cards = deck.cards
-        } else {
-            cards = deck.cards.filter { $0.category == selectedCategory }
-        }
+        let cards = deck.cards(for: selectedCategory)
         
         if currentIndex >= cards.count && !cards.isEmpty {
             DispatchQueue.main.async {
@@ -117,20 +110,31 @@ struct FlashcardModeView: View {
             emptyStateView
         } else {
             ZStack {
+                // Only render background card if needed and within bounds
                 if currentIndex < filteredCards.count - 1 && currentIndex + 1 < filteredCards.count {
                     FlashcardView(card: filteredCards[currentIndex + 1], isFlipped: false, showFrench: showFrench, deck: deck, isBackground: true)
-                        .scaleEffect(0.95).offset(y: 10).opacity(0.6).blur(radius: 2)
+                        .scaleEffect(0.95)
+                        .offset(y: 10)
+                        .opacity(0.6)
+                        .blur(radius: 2)
+                        .allowsHitTesting(false) // Disable interaction for background card
                 }
                 
+                // Main card with optimized gesture handling
                 if currentIndex < filteredCards.count {
                     FlashcardView(card: filteredCards[currentIndex], isFlipped: isFlipped, showFrench: showFrench, deck: deck)
                         .id(filteredCards[currentIndex].id)
                         .offset(x: dragOffset.width, y: 0)
                         .rotationEffect(.degrees(Double(dragOffset.width / 20)))
-                        .gesture(DragGesture().onChanged(handleDragChange).onEnded(handleDragEnd))
+                        .gesture(
+                            DragGesture(minimumDistance: 5) // Add minimum distance to prevent accidental drags
+                                .onChanged(handleDragChange)
+                                .onEnded(handleDragEnd)
+                        )
                         .onTapGesture {
                             flipCard()
                         }
+                        .animation(.spring(response: 0.35, dampingFraction: 0.65), value: isFlipped)
                 }
             }
             .frame(minHeight: 420, maxHeight: 500)

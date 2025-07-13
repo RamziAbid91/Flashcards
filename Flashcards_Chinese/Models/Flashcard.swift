@@ -12,8 +12,15 @@ class Flashcard: ObservableObject, Identifiable, Codable, Equatable {
     let id: UUID
     
     // Properties that can change and should update the UI are marked @Published
-    @Published var isFavorite: Bool
-    @Published var seen: Bool // Track if the card has been seen
+    @Published var isFavorite: Bool = false
+    @Published var seen: Bool = false
+    
+    // MARK: - Spaced Repetition Properties
+    @Published var reviewCount: Int = 0
+    @Published var lastReviewed: Date?
+    @Published var nextReviewDate: Date?
+    @Published var difficultyLevel: Int = 1 // 1-5 scale
+    @Published var streakCount: Int = 0 // Consecutive correct answers
     
     // Other properties that don't change during a session
     let chinese: String
@@ -62,11 +69,15 @@ class Flashcard: ObservableObject, Identifiable, Codable, Equatable {
         pronunciation = try container.decode(String.self, forKey: .pronunciation)
         category = try container.decode(String.self, forKey: .category)
         difficulty = try container.decode(Int.self, forKey: .difficulty)
-        isFavorite = try container.decode(Bool.self, forKey: .isFavorite)
-        seen = try container.decodeIfPresent(Bool.self, forKey: .seen) ?? false
+        let favoriteValue = try container.decode(Bool.self, forKey: .isFavorite)
+        let seenValue = try container.decodeIfPresent(Bool.self, forKey: .seen) ?? false
         exampleSentence = try container.decode(String.self, forKey: .exampleSentence)
         examplePinyin = try container.decode(String.self, forKey: .examplePinyin)
         exampleTranslation = try container.decode(String.self, forKey: .exampleTranslation)
+        
+        // Initialize @Published properties
+        self.isFavorite = favoriteValue
+        self.seen = seenValue
     }
     
     // Custom encoder required for Codable conformance

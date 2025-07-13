@@ -14,8 +14,14 @@ struct FlashcardView: View {
     let showFrench: Bool
     @ObservedObject var deck: FlashcardDeck // Still needed for the favorite action
     var isBackground: Bool = false
-   
     
+    // MARK: - Lazy Properties for Performance
+    private var synthesizer: AVSpeechSynthesizer {
+        // Lazy initialization of synthesizer
+        let synth = AVSpeechSynthesizer()
+        return synth
+    }
+   
     var body: some View {
         ZStack {
             FrontView(card: card, deck: deck, showFrench: showFrench)

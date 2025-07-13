@@ -31,9 +31,34 @@ struct QuizModeView: View {
     var totalQuestions: Int { quizCards.count }
     private var filteredCardsForQuiz: [Flashcard] {
         if selectedCategory != "All" {
-            return deck.cards.filter { $0.category == selectedCategory }
+            return deck.cards(for: selectedCategory)
         }
         return deck.cards
+    }
+    
+    // MARK: - Optimized Quiz Card Generation
+    private func generateQuizCards() {
+        let availableCards = filteredCardsForQuiz
+        
+        if availableCards.isEmpty {
+            quizCards = []
+            return
+        }
+        
+        // Use seen cards first, then supplement with basic words if needed
+        var quizCardPool: [Flashcard] = []
+        
+        let seenCards = availableCards.filter { $0.seen }
+        if seenCards.count >= 10 {
+            quizCardPool = seenCards
+        } else {
+            // Combine seen cards with basic words
+            let basicWords = deck.basicWordsCards
+            quizCardPool = seenCards + basicWords
+        }
+        
+        // Limit to reasonable number for quiz
+        quizCards = Array(quizCardPool.prefix(20))
     }
     
     init(deck: FlashcardDeck) {
@@ -307,21 +332,7 @@ struct QuizModeView: View {
     
     private func startNewQuiz() {
         withAnimation(.spring(response: 0.4, dampingFraction: 0.7)) {
-            let seen = deck.seenCards
-            let basic = deck.basicWordsCards.filter { basicCard in
-                !seen.contains { seenCard in seenCard.id == basicCard.id }
-            }
-            var quizSet: [Flashcard] = []
-            if seen.count >= 10 {
-                quizSet = Array(seen.shuffled().prefix(10))
-            } else {
-                quizSet = seen.shuffled()
-                let needed = 10 - quizSet.count
-                if needed > 0 {
-                    quizSet += Array(basic.shuffled().prefix(needed))
-                }
-            }
-            quizCards = quizSet
+            generateQuizCards()
             currentIndex = 0
             deck.resetQuiz()
             quizCompleted = false

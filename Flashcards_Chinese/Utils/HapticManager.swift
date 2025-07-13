@@ -13,16 +13,23 @@ final class HapticManager {
     
     // A private initializer prevents others from creating new instances.
     private init() {}
+    
+    // MARK: - Throttling for Performance
+    private var lastImpactTime: TimeInterval = 0
+    private let minimumInterval: TimeInterval = 0.1 // Minimum 100ms between haptics
 
     /// Triggers an impact feedback, like a tap.
     /// - Parameter style: The intensity of the impact (e.g., .light, .medium, .heavy).
     func impact(style: UIImpactFeedbackGenerator.FeedbackStyle) {
-        // First, check if the user has enabled haptics in the settings.
-        // If the key doesn't exist yet, `object(forKey:)` is nil, and we proceed,
-        // which means haptics are ON by default.
+        // Check if haptics are enabled
         if let hapticsEnabled = UserDefaults.standard.object(forKey: "enableHaptics") as? Bool {
             guard hapticsEnabled else { return }
         }
+        
+        // Throttle haptic feedback to prevent excessive usage
+        let currentTime = CACurrentMediaTime()
+        guard currentTime - lastImpactTime >= minimumInterval else { return }
+        lastImpactTime = currentTime
 
         let generator = UIImpactFeedbackGenerator(style: style)
         generator.prepare() // Prepare the generator for lower latency.
@@ -32,10 +39,15 @@ final class HapticManager {
     /// Triggers a notification feedback, like a success or error.
     /// - Parameter type: The type of notification (e.g., .success, .warning, .error).
     func notification(type: UINotificationFeedbackGenerator.FeedbackType) {
-        // First, check if the user has enabled haptics in the settings.
+        // Check if haptics are enabled
         if let hapticsEnabled = UserDefaults.standard.object(forKey: "enableHaptics") as? Bool {
             guard hapticsEnabled else { return }
         }
+        
+        // Throttle notification feedback
+        let currentTime = CACurrentMediaTime()
+        guard currentTime - lastImpactTime >= minimumInterval else { return }
+        lastImpactTime = currentTime
         
         let generator = UINotificationFeedbackGenerator()
         generator.prepare()

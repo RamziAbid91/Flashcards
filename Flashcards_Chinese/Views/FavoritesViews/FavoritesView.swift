@@ -12,11 +12,17 @@ struct FavoritesView: View {
     
     @State private var searchText = ""
     
+    // MARK: - Computed Properties with Explicit Observation
+    private var favoriteCards: [Flashcard] {
+        deck.favoriteCards
+    }
+    
     var filteredFavorites: [Flashcard] {
         if searchText.isEmpty {
-            return deck.favoriteCards
+            return favoriteCards
         } else {
-            return deck.favoriteCards.filter {
+            // Use cached favorites and filter only when needed
+            return favoriteCards.filter {
                 $0.chinese.localizedCaseInsensitiveContains(searchText) ||
                 $0.pinyin.localizedCaseInsensitiveContains(searchText) ||
                 $0.english.localizedCaseInsensitiveContains(searchText)
@@ -29,7 +35,7 @@ struct FavoritesView: View {
             Theme.backgroundColor.ignoresSafeArea()
             
             VStack {
-                if deck.favoriteCards.isEmpty {
+                if favoriteCards.isEmpty {
                     emptyStateView
                 } else if filteredFavorites.isEmpty {
                     noResultsView
@@ -43,11 +49,19 @@ struct FavoritesView: View {
         .searchable(text: $searchText, prompt: "Search favorites...")
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                if !deck.favoriteCards.isEmpty {
+                if !favoriteCards.isEmpty {
                     EditButton()
                         .tint(Theme.primaryColor)
                 }
             }
+        }
+        // Force refresh when deck changes
+        .onReceive(deck.$cards) { _ in
+            // This ensures the view updates when cards change
+        }
+        .onAppear {
+            // Force refresh when view appears to ensure latest data
+            deck.objectWillChange.send()
         }
     }
     

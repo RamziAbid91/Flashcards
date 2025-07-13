@@ -31,7 +31,7 @@ struct SettingsView: View {
 
             // MARK: - Interaction Settings
             Section(header: Text("Interaction").font(.headline)) {
-                Toggle("Enable Haptic Feedback", isOn: $enableHaptics)
+                Toggle("Vibration Effects", isOn: $enableHaptics)
                     .tint(Theme.primaryColor)
             }
             

@@ -12,6 +12,12 @@ class FlashcardDeck: ObservableObject {
     @Published var quizScore = QuizScore(correct: 0, total: 0)
     @Published var showAdminPanel = false
 
+    // MARK: - Cached Properties for Performance
+    private var _favoriteCards: [Flashcard]?
+    private var _seenCards: [Flashcard]?
+    private var _basicWordsCards: [Flashcard]?
+    private var _cardsByCategory: [String: [Flashcard]] = [:]
+    
     private var documentsUrl: URL {
         FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     }
@@ -24,15 +30,48 @@ class FlashcardDeck: ObservableObject {
         loadCards()
     }
 
-    // MARK: - Computed Properties
+    // MARK: - Optimized Computed Properties with Caching
     var favoriteCards: [Flashcard] {
-        cards.filter { $0.isFavorite }
+        if _favoriteCards == nil {
+            _favoriteCards = cards.filter { $0.isFavorite }
+        }
+        return _favoriteCards ?? []
     }
+    
     var seenCards: [Flashcard] {
-        cards.filter { $0.seen }
+        if _seenCards == nil {
+            _seenCards = cards.filter { $0.seen }
+        }
+        return _seenCards ?? []
     }
+    
     var basicWordsCards: [Flashcard] {
-        cards.filter { $0.category.lowercased() == "basic words" }
+        if _basicWordsCards == nil {
+            _basicWordsCards = cards.filter { $0.category.lowercased() == "basic words" }
+        }
+        return _basicWordsCards ?? []
+    }
+    
+    // MARK: - Optimized Category Filtering
+    func cards(for category: String) -> [Flashcard] {
+        if category == "All" {
+            return cards
+        } else if category == "Favorites" {
+            return favoriteCards
+        } else {
+            if _cardsByCategory[category] == nil {
+                _cardsByCategory[category] = cards.filter { $0.category == category }
+            }
+            return _cardsByCategory[category] ?? []
+        }
+    }
+    
+    // MARK: - Cache Invalidation
+    private func invalidateCaches() {
+        _favoriteCards = nil
+        _seenCards = nil
+        _basicWordsCards = nil
+        _cardsByCategory.removeAll()
     }
 
     // MARK: - Card Management
@@ -50,6 +89,7 @@ class FlashcardDeck: ObservableObject {
             exampleTranslation: exampleTranslation
         )
         cards.append(newCard)
+        invalidateCaches() // Invalidate caches when cards are added
         updateCategories()
         saveCards()
     }
@@ -57,6 +97,11 @@ class FlashcardDeck: ObservableObject {
     func toggleFavorite(card: Flashcard) {
         if let index = cards.firstIndex(where: { $0.id == card.id }) {
             cards[index].isFavorite.toggle()
+            invalidateCaches() // Invalidate caches when favorites change
+            
+            // Force SwiftUI to update by triggering objectWillChange
+            objectWillChange.send()
+            
             saveCards()
         }
     }
@@ -95,22 +140,43 @@ class FlashcardDeck: ObservableObject {
     }
 
     // MARK: - Data Persistence
+    private var saveTask: DispatchWorkItem?
+    
     func saveCards() {
-        let encoder = JSONEncoder()
-        encoder.outputFormatting = .prettyPrinted
-        do {
-            let data = try encoder.encode(cards)
-            try data.write(to: cardsFileUrl, options: .atomic)
-        } catch {
-            print("Error saving cards: \(error.localizedDescription)")
+        // Cancel any pending save task
+        saveTask?.cancel()
+        
+        // Create a new save task with debouncing
+        let task = DispatchWorkItem { [weak self] in
+            guard let self = self else { return }
+            
+            let encoder = JSONEncoder()
+            encoder.outputFormatting = .prettyPrinted
+            do {
+                let data = try encoder.encode(self.cards)
+                try data.write(to: self.cardsFileUrl, options: .atomic)
+            } catch {
+                print("Error saving cards: \(error.localizedDescription)")
+            }
         }
+        
+        saveTask = task
+        
+        // Debounce saves to avoid excessive I/O
+        DispatchQueue.global(qos: .utility).asyncAfter(deadline: .now() + 0.5, execute: task)
     }
 
     private func loadCards() {
-        // Simply load the default cards - no complex logic that could cause duplicates
-        cards = FlashcardDeck.defaultCards()
+        // Try to load saved cards from file first
+        if let data = try? Data(contentsOf: cardsFileUrl),
+           let savedCards = try? JSONDecoder().decode([Flashcard].self, from: data) {
+            cards = savedCards
+        } else {
+            // If no saved file exists or loading fails, use default cards
+            cards = FlashcardDeck.defaultCards()
+            saveCards() // Save the default set
+        }
         updateCategories()
-        saveCards() // Save the default set
     }
 
     private func updateCategories() {
@@ -124,6 +190,7 @@ class FlashcardDeck: ObservableObject {
         uniqueCategories.insert("All", at: 0)
         
         self.categories = uniqueCategories
+        invalidateCaches() // Invalidate caches when categories change
     }
     
     // MARK: - Default Data
@@ -540,6 +607,11 @@ class FlashcardDeck: ObservableObject {
     func markCardSeen(_ card: Flashcard) {
         if let index = cards.firstIndex(where: { $0.id == card.id }) {
             cards[index].seen = true
+            invalidateCaches() // Invalidate caches when seen status changes
+            
+            // Force SwiftUI to update by triggering objectWillChange
+            objectWillChange.send()
+            
             saveCards()
         }
     }
