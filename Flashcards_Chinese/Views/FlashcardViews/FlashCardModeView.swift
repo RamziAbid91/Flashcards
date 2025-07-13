@@ -75,6 +75,7 @@ struct FlashcardModeView: View {
         .alert("Voice Error", isPresented: $showingVoiceAlert) { Button("OK") {}; Button("Settings") { openAppSettings() } } message: { Text(voiceAlertMessage) }
         .onChange(of: filteredCards.count) { _ in handleCardCountChange() }
         .onChange(of: selectedCategory) { _ in resetToNewCategory() }
+
     }
     
     // MARK: - Subviews

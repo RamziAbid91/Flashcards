@@ -17,39 +17,42 @@ struct HomeView: View {
                            startPoint: .top, endPoint: .bottom)
                 .edgesIgnoringSafeArea(.all)
             
-            VStack(spacing: 30) {
-                Spacer()
-                
-                // App Icon and Title
-                Image(systemName: "character.bubble.fill.zh")
-                    .font(.system(size: 70, weight: .semibold))
-                    .foregroundColor(Theme.primaryColor)
-                    .padding(.bottom, 5)
-                
-                Text("中文一点通")
-                    .font(.system(size: 28, weight: .bold, design: .rounded))
-                    .foregroundColor(Theme.primaryColor)
-                
-                Text("Chinese Flashcards")
-                    .font(.system(size: 18, weight: .medium))
-                    .foregroundColor(Theme.secondaryTextColor)
-                    .padding(.bottom, 20)
-                
-                // Welcome Message
-                VStack(spacing: 12) {
-                    Text("Welcome to Chinese Flashcards!")
-                        .font(.title3.weight(.semibold))
-                        .foregroundColor(Theme.textColor)
+            ScrollView {
+                VStack(spacing: 30) {
+                    Spacer()
                     
-                    Text("Use the tabs below to navigate between different features.")
-                        .font(.subheadline)
+                    // App Icon and Title
+                    Image(systemName: "character.bubble.fill.zh")
+                        .font(.system(size: 70, weight: .semibold))
+                        .foregroundColor(Theme.primaryColor)
+                        .padding(.bottom, 5)
+                    
+                    Text("中文一点通")
+                        .font(.system(size: 28, weight: .bold, design: .rounded))
+                        .foregroundColor(Theme.primaryColor)
+                    
+                    Text("Chinese Flashcards")
+                        .font(.system(size: 18, weight: .medium))
                         .foregroundColor(Theme.secondaryTextColor)
-                        .multilineTextAlignment(.center)
-                        .padding(.horizontal, 40)
+                        .padding(.bottom, 20)
+                    
+                    // Welcome Message
+                    VStack(spacing: 12) {
+                        Text("Welcome to Chinese Flashcards!")
+                            .font(.title3.weight(.semibold))
+                            .foregroundColor(Theme.textColor)
+                        
+                        Text("Use the tabs below to navigate between different features.")
+                            .font(.subheadline)
+                            .foregroundColor(Theme.secondaryTextColor)
+                            .multilineTextAlignment(.center)
+                            .padding(.horizontal, 40)
+                    }
+                    
+                    Spacer()
+                    Spacer()
                 }
-                
-                Spacer()
-                Spacer()
+                .padding(.horizontal)
             }
         }
     }

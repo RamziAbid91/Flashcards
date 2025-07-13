@@ -99,6 +99,13 @@ class DataManager: ObservableObject {
             lastUpdated: Date()
         )
     }
+    
+    // MARK: - Reset Functions
+    func resetAllProgress(_ cards: [Flashcard]) {
+        // This method will be called by the FlashcardDeck to reset all progress
+        // The actual reset logic is in FlashcardDeck.resetAllProgress()
+        print("Reset all progress requested for \(cards.count) cards")
+    }
 }
 
 struct StudyReport {

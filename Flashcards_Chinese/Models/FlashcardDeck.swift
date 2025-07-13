@@ -25,6 +25,8 @@ class FlashcardDeck: ObservableObject {
     private var cardsFileUrl: URL {
         documentsUrl.appendingPathComponent("flashcards.json")
     }
+    
+
 
     init() {
         loadCards()
@@ -615,6 +617,74 @@ class FlashcardDeck: ObservableObject {
             saveCards()
         }
     }
+
+    // MARK: - Data Management Methods
+    func importCards(_ newCards: [Flashcard]) {
+        cards.append(contentsOf: newCards)
+        invalidateCaches()
+        updateCategories()
+        saveCards()
+        objectWillChange.send()
+    }
+    
+    func resetAllProgress() {
+        for index in cards.indices {
+            cards[index].seen = false
+            cards[index].isFavorite = false
+            cards[index].reviewCount = 0
+            cards[index].lastReviewed = nil
+            cards[index].nextReviewDate = nil
+            cards[index].difficultyLevel = 1
+            cards[index].streakCount = 0
+        }
+        
+
+        
+        invalidateCaches()
+        saveCards()
+        objectWillChange.send()
+    }
+    
+
+    
+    func getCardsForReview() -> [Flashcard] {
+        let now = Date()
+        return cards.filter { card in
+            card.seen && (card.nextReviewDate == nil || card.nextReviewDate! <= now)
+        }
+    }
+    
+    func updateCardDifficulty(_ card: Flashcard, wasCorrect: Bool) {
+        if let index = cards.firstIndex(where: { $0.id == card.id }) {
+            if wasCorrect {
+                cards[index].streakCount += 1
+                cards[index].difficultyLevel = min(5, cards[index].difficultyLevel + 1)
+            } else {
+                cards[index].streakCount = 0
+                cards[index].difficultyLevel = max(1, cards[index].difficultyLevel - 1)
+            }
+            
+            cards[index].reviewCount += 1
+            cards[index].lastReviewed = Date()
+            
+            // Calculate next review date based on spaced repetition
+            let interval = calculateNextReviewInterval(for: cards[index])
+            cards[index].nextReviewDate = Calendar.current.date(byAdding: .day, value: interval, to: Date())
+            
+            invalidateCaches()
+            saveCards()
+            objectWillChange.send()
+        }
+    }
+    
+    private func calculateNextReviewInterval(for card: Flashcard) -> Int {
+        // Simple spaced repetition algorithm
+        let baseInterval = card.difficultyLevel
+        let streakMultiplier = min(card.streakCount, 5)
+        return baseInterval * (1 + streakMultiplier)
+    }
+
+
 }
 
 // MARK: - Helper Structs & Extensions

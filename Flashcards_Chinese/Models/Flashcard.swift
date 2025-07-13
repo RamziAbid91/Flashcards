@@ -55,7 +55,7 @@ class Flashcard: ObservableObject, Identifiable, Codable, Equatable {
     // to conform to the Codable protocol.
     
     enum CodingKeys: String, CodingKey {
-        case id, chinese, pinyin, english, french, pronunciation, category, difficulty, isFavorite, seen, exampleSentence, examplePinyin, exampleTranslation
+        case id, chinese, pinyin, english, french, pronunciation, category, difficulty, isFavorite, seen, exampleSentence, examplePinyin, exampleTranslation, reviewCount, lastReviewed, nextReviewDate, difficultyLevel, streakCount
     }
     
     // Custom decoder required for Codable conformance
@@ -69,15 +69,18 @@ class Flashcard: ObservableObject, Identifiable, Codable, Equatable {
         pronunciation = try container.decode(String.self, forKey: .pronunciation)
         category = try container.decode(String.self, forKey: .category)
         difficulty = try container.decode(Int.self, forKey: .difficulty)
-        let favoriteValue = try container.decode(Bool.self, forKey: .isFavorite)
-        let seenValue = try container.decodeIfPresent(Bool.self, forKey: .seen) ?? false
-        exampleSentence = try container.decode(String.self, forKey: .exampleSentence)
-        examplePinyin = try container.decode(String.self, forKey: .examplePinyin)
-        exampleTranslation = try container.decode(String.self, forKey: .exampleTranslation)
+        isFavorite = try container.decodeIfPresent(Bool.self, forKey: .isFavorite) ?? false
+        seen = try container.decodeIfPresent(Bool.self, forKey: .seen) ?? false
+        exampleSentence = try container.decodeIfPresent(String.self, forKey: .exampleSentence) ?? ""
+        examplePinyin = try container.decodeIfPresent(String.self, forKey: .examplePinyin) ?? ""
+        exampleTranslation = try container.decodeIfPresent(String.self, forKey: .exampleTranslation) ?? ""
         
-        // Initialize @Published properties
-        self.isFavorite = favoriteValue
-        self.seen = seenValue
+        // Spaced repetition properties
+        reviewCount = try container.decodeIfPresent(Int.self, forKey: .reviewCount) ?? 0
+        lastReviewed = try container.decodeIfPresent(Date.self, forKey: .lastReviewed)
+        nextReviewDate = try container.decodeIfPresent(Date.self, forKey: .nextReviewDate)
+        difficultyLevel = try container.decodeIfPresent(Int.self, forKey: .difficultyLevel) ?? 1
+        streakCount = try container.decodeIfPresent(Int.self, forKey: .streakCount) ?? 0
     }
     
     // Custom encoder required for Codable conformance
@@ -96,6 +99,11 @@ class Flashcard: ObservableObject, Identifiable, Codable, Equatable {
         try container.encode(exampleSentence, forKey: .exampleSentence)
         try container.encode(examplePinyin, forKey: .examplePinyin)
         try container.encode(exampleTranslation, forKey: .exampleTranslation)
+        try container.encode(reviewCount, forKey: .reviewCount)
+        try container.encode(lastReviewed, forKey: .lastReviewed)
+        try container.encode(nextReviewDate, forKey: .nextReviewDate)
+        try container.encode(difficultyLevel, forKey: .difficultyLevel)
+        try container.encode(streakCount, forKey: .streakCount)
     }
 
     // Equatable conformance

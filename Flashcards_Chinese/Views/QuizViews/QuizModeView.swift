@@ -50,15 +50,22 @@ struct QuizModeView: View {
         
         let seenCards = availableCards.filter { $0.seen }
         if seenCards.count >= 10 {
-            quizCardPool = seenCards
+            // If we have enough seen cards, use them and shuffle
+            quizCardPool = seenCards.shuffled()
         } else {
-            // Combine seen cards with basic words
+            // Combine seen cards with basic words and shuffle
             let basicWords = deck.basicWordsCards
-            quizCardPool = seenCards + basicWords
+            quizCardPool = (seenCards + basicWords).shuffled()
         }
         
-        // Limit to reasonable number for quiz
-        quizCards = Array(quizCardPool.prefix(20))
+        // Limit to 10 questions and ensure we don't have duplicates
+        let uniqueCards = Array(Set(quizCardPool.map { $0.id }))
+            .compactMap { id in
+                quizCardPool.first { $0.id == id }
+            }
+            .shuffled()
+        
+        quizCards = Array(uniqueCards.prefix(10))
     }
     
     init(deck: FlashcardDeck) {
@@ -109,6 +116,14 @@ struct QuizModeView: View {
                 Text("Quiz Mode")
                     .font(.headline)
                     .foregroundColor(Theme.textColor)
+            }
+            
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button(action: regenerateQuizCards) {
+                    Image(systemName: "arrow.clockwise")
+                        .foregroundColor(Theme.primaryColor)
+                }
+                .disabled(quizCards.isEmpty)
             }
         }
         .onAppear {
@@ -344,25 +359,51 @@ struct QuizModeView: View {
         }
     }
     
+    private func regenerateQuizCards() {
+        // Force regeneration of quiz cards with new randomization
+        generateQuizCards()
+        currentIndex = 0
+        selectedAnswer = nil
+        showFeedback = false
+        if !quizCards.isEmpty {
+            generateOptions()
+        }
+    }
+    
     private func generateOptions() {
-        var options: [String]
+        guard !quizCards.isEmpty && currentIndex < quizCards.count else { return }
+        
+        var options: [String] = []
+        let currentCard = quizCards[currentIndex]
+        
         if currentIndex % 2 == 0 {
             // Asking for pinyin
-            options = Array(Set(deck.cards.compactMap { $0.pinyin }))
-                .filter { $0 != quizCards[currentIndex].pinyin }
+            let correctPinyin = currentCard.pinyin
+            
+            // Get all unique pinyin options from all cards
+            let allPinyinOptions = Set(deck.cards.compactMap { $0.pinyin })
+                .filter { $0 != correctPinyin }
                 .shuffled()
-                .prefix(3)
-                .map { $0 }
-            options.append(quizCards[currentIndex].pinyin)
+            
+            // Take 3 random wrong options
+            let wrongOptions = Array(allPinyinOptions.prefix(3))
+            options = wrongOptions + [correctPinyin]
+            
         } else {
             // Asking for meaning
-            options = Array(Set(deck.cards.compactMap { $0.english }))
-                .filter { $0 != quizCards[currentIndex].english }
+            let correctEnglish = currentCard.english
+            
+            // Get all unique english options from all cards
+            let allEnglishOptions = Set(deck.cards.compactMap { $0.english })
+                .filter { $0 != correctEnglish }
                 .shuffled()
-                .prefix(3)
-                .map { $0 }
-            options.append(quizCards[currentIndex].english)
+            
+            // Take 3 random wrong options
+            let wrongOptions = Array(allEnglishOptions.prefix(3))
+            options = wrongOptions + [correctEnglish]
         }
+        
+        // Shuffle the final options to randomize their order
         quizOptions = options.shuffled()
     }
     
@@ -431,7 +472,7 @@ struct QuizModeView: View {
         }
         
         withAnimation(.spring(response: 0.4, dampingFraction: 0.7)) {
-            startNewQuiz()
+            regenerateQuizCards()
         }
     }
     
