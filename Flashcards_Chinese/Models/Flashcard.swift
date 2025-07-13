@@ -13,6 +13,7 @@ class Flashcard: ObservableObject, Identifiable, Codable, Equatable {
     
     // Properties that can change and should update the UI are marked @Published
     @Published var isFavorite: Bool
+    @Published var seen: Bool // Track if the card has been seen
     
     // Other properties that don't change during a session
     let chinese: String
@@ -27,7 +28,7 @@ class Flashcard: ObservableObject, Identifiable, Codable, Equatable {
     let exampleTranslation: String
 
     // Custom initializer to set all properties
-    init(id: UUID = UUID(), chinese: String, pinyin: String, english: String, french: String, pronunciation: String, category: String, difficulty: Int, isFavorite: Bool = false, exampleSentence: String, examplePinyin: String, exampleTranslation: String) {
+    init(id: UUID = UUID(), chinese: String, pinyin: String, english: String, french: String, pronunciation: String, category: String, difficulty: Int, isFavorite: Bool = false, seen: Bool = false, exampleSentence: String, examplePinyin: String, exampleTranslation: String) {
         self.id = id
         self.chinese = chinese
         self.pinyin = pinyin
@@ -37,6 +38,7 @@ class Flashcard: ObservableObject, Identifiable, Codable, Equatable {
         self.category = category
         self.difficulty = difficulty
         self.isFavorite = isFavorite
+        self.seen = seen
         self.exampleSentence = exampleSentence
         self.examplePinyin = examplePinyin
         self.exampleTranslation = exampleTranslation
@@ -46,7 +48,7 @@ class Flashcard: ObservableObject, Identifiable, Codable, Equatable {
     // to conform to the Codable protocol.
     
     enum CodingKeys: String, CodingKey {
-        case id, chinese, pinyin, english, french, pronunciation, category, difficulty, isFavorite, exampleSentence, examplePinyin, exampleTranslation
+        case id, chinese, pinyin, english, french, pronunciation, category, difficulty, isFavorite, seen, exampleSentence, examplePinyin, exampleTranslation
     }
     
     // Custom decoder required for Codable conformance
@@ -61,6 +63,7 @@ class Flashcard: ObservableObject, Identifiable, Codable, Equatable {
         category = try container.decode(String.self, forKey: .category)
         difficulty = try container.decode(Int.self, forKey: .difficulty)
         isFavorite = try container.decode(Bool.self, forKey: .isFavorite)
+        seen = try container.decodeIfPresent(Bool.self, forKey: .seen) ?? false
         exampleSentence = try container.decode(String.self, forKey: .exampleSentence)
         examplePinyin = try container.decode(String.self, forKey: .examplePinyin)
         exampleTranslation = try container.decode(String.self, forKey: .exampleTranslation)
@@ -78,6 +81,7 @@ class Flashcard: ObservableObject, Identifiable, Codable, Equatable {
         try container.encode(category, forKey: .category)
         try container.encode(difficulty, forKey: .difficulty)
         try container.encode(isFavorite, forKey: .isFavorite)
+        try container.encode(seen, forKey: .seen)
         try container.encode(exampleSentence, forKey: .exampleSentence)
         try container.encode(examplePinyin, forKey: .examplePinyin)
         try container.encode(exampleTranslation, forKey: .exampleTranslation)

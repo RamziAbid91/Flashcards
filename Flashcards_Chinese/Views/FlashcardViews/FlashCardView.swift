@@ -25,6 +25,9 @@ struct FlashcardView: View {
                 .modifier(CardSideModifier(isFront: false, isFlipped: isFlipped, isBackground: isBackground))
         }
         .frame(minHeight: 400, maxHeight: 500)
+        .onAppear {
+            deck.markCardSeen(card)
+        }
     }
 }
 

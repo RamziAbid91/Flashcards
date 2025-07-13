@@ -307,13 +307,26 @@ struct QuizModeView: View {
     
     private func startNewQuiz() {
         withAnimation(.spring(response: 0.4, dampingFraction: 0.7)) {
-            quizCards = filteredCardsForQuiz.shuffled().prefix(min(10, filteredCardsForQuiz.count)).map { $0 }
+            let seen = deck.seenCards
+            let basic = deck.basicWordsCards.filter { basicCard in
+                !seen.contains { seenCard in seenCard.id == basicCard.id }
+            }
+            var quizSet: [Flashcard] = []
+            if seen.count >= 10 {
+                quizSet = Array(seen.shuffled().prefix(10))
+            } else {
+                quizSet = seen.shuffled()
+                let needed = 10 - quizSet.count
+                if needed > 0 {
+                    quizSet += Array(basic.shuffled().prefix(needed))
+                }
+            }
+            quizCards = quizSet
             currentIndex = 0
             deck.resetQuiz()
             quizCompleted = false
             selectedAnswer = nil
             showFeedback = false
-            
             if !quizCards.isEmpty {
                 generateOptions()
             }

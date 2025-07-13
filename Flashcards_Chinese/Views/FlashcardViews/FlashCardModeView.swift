@@ -117,19 +117,21 @@ struct FlashcardModeView: View {
             emptyStateView
         } else {
             ZStack {
-                if currentIndex < filteredCards.count - 1 {
+                if currentIndex < filteredCards.count - 1 && currentIndex + 1 < filteredCards.count {
                     FlashcardView(card: filteredCards[currentIndex + 1], isFlipped: false, showFrench: showFrench, deck: deck, isBackground: true)
                         .scaleEffect(0.95).offset(y: 10).opacity(0.6).blur(radius: 2)
                 }
                 
-                FlashcardView(card: filteredCards[currentIndex], isFlipped: isFlipped, showFrench: showFrench, deck: deck)
-                    .id(filteredCards[currentIndex].id)
-                    .offset(x: dragOffset.width, y: 0)
-                    .rotationEffect(.degrees(Double(dragOffset.width / 20)))
-                    .gesture(DragGesture().onChanged(handleDragChange).onEnded(handleDragEnd))
-                    .onTapGesture {
-                        flipCard()
-                    }
+                if currentIndex < filteredCards.count {
+                    FlashcardView(card: filteredCards[currentIndex], isFlipped: isFlipped, showFrench: showFrench, deck: deck)
+                        .id(filteredCards[currentIndex].id)
+                        .offset(x: dragOffset.width, y: 0)
+                        .rotationEffect(.degrees(Double(dragOffset.width / 20)))
+                        .gesture(DragGesture().onChanged(handleDragChange).onEnded(handleDragEnd))
+                        .onTapGesture {
+                            flipCard()
+                        }
+                }
             }
             .frame(minHeight: 420, maxHeight: 500)
             .padding(.horizontal, 15)
@@ -227,7 +229,7 @@ struct FlashcardModeView: View {
         }
     }
     private func speakCurrentWord() {
-        guard !filteredCards.isEmpty else { return }
+        guard !filteredCards.isEmpty && currentIndex < filteredCards.count else { return }
         let utterance = AVSpeechUtterance(string: filteredCards[currentIndex].chinese)
         utterance.voice = AVSpeechSynthesisVoice(language: "zh-CN"); utterance.rate = AVSpeechUtteranceDefaultSpeechRate * 0.85
         do { try AVAudioSession.sharedInstance().setCategory(.playback); try AVAudioSession.sharedInstance().setActive(true); synthesizer.speak(utterance) }
@@ -243,7 +245,14 @@ struct FlashcardModeView: View {
             dragOffset = .zero
         }
     }
-    private func handleCardCountChange() { if filteredCards.isEmpty { currentIndex = 0 } else if currentIndex >= filteredCards.count { currentIndex = max(0, filteredCards.count - 1) }; isFlipped = false }
+    private func handleCardCountChange() { 
+        if filteredCards.isEmpty { 
+            currentIndex = 0 
+        } else if currentIndex >= filteredCards.count { 
+            currentIndex = max(0, filteredCards.count - 1) 
+        }
+        isFlipped = false 
+    }
     private func resetToNewCategory() { 
         currentIndex = 0 
         resetCardState() 
