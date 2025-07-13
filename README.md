@@ -29,7 +29,12 @@ A modern, intuitive iOS application for learning Chinese vocabulary through inte
 
 ## 📱 Screenshots
 
-*[Screenshots would be added here]*
+<img width="1170" height="2532" alt="IMG_4184" src="https://github.com/user-attachments/assets/954fd4b6-8580-47d6-9830-1f49886f0c65" />
+<img width="1170" height="2532" alt="IMG_4187" src="https://github.com/user-attachments/assets/b2af19f2-56a9-457b-bba5-f1915c9f96ec" />
+<img width="1170" height="2532" alt="IMG_4185" src="https://github.com/user-attachments/assets/0a7a8bd6-266b-410f-b3fd-4a307f124653" />
+
+
+
 
 ## 🏗️ Architecture
 
@@ -201,13 +206,12 @@ We welcome contributions! Please feel free to submit issues and pull requests.
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
+This project is licensed under the MIT License
 ## 👨‍💻 Author
 
 **Ramzi Abid**
-- GitHub: [@yourusername](https://github.com/yourusername)
-- Email: [your-email@example.com]
+- GitHub: https://github.com/RamziAbid91/
+- Email: ramziabid1991@gmail.com
 
 ## 🙏 Acknowledgments
 
