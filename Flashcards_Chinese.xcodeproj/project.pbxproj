@@ -12,7 +12,6 @@
 		2E746F332E1E205A00E6F8E0 /* Flashcards_Chinese/Utils/Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F2E2E1E205A00E6F8E0 /* Flashcards_Chinese/Utils/Theme.swift */; };
 		2E746F352E1E205A00E6F8E0 /* Flashcards_Chinese/Utils/HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F2D2E1E205A00E6F8E0 /* Flashcards_Chinese/Utils/HapticManager.swift */; };
 		2E746F5F2E1E206400E6F8E0 /* AdminPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F4A2E1E206400E6F8E0 /* AdminPanelView.swift */; };
-		2E746F602E1E206400E6F8E0 /* CategoryPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F4F2E1E206400E6F8E0 /* CategoryPickerView.swift */; };
 		2E746F632E1E206400E6F8E0 /* QuizModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F562E1E206400E6F8E0 /* QuizModeView.swift */; };
 		2E746F652E1E206400E6F8E0 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F3E2E1E206400E6F8E0 /* ProgressBar.swift */; };
 		2E746F662E1E206400E6F8E0 /* FavoriteCardRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F402E1E206400E6F8E0 /* FavoriteCardRow.swift */; };
@@ -37,6 +36,7 @@
 		2E79D6E02DFDBB3D00CFF202 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		2E79D6FA2DFDBB4000CFF202 /* Flashcards_ChineseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E79D6F92DFDBB4000CFF202 /* Flashcards_ChineseUITests.swift */; };
 		2E79D6FC2DFDBB4000CFF202 /* Flashcards_ChineseUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E79D6FB2DFDBB4000CFF202 /* Flashcards_ChineseUITestsLaunchTests.swift */; };
+		2EE91EB42E28B8BC0009B86F /* UnifiedCategoryPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE91EB32E28B8BC0009B86F /* UnifiedCategoryPickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,14 +73,12 @@
 		2E746F4B2E1E206400E6F8E0 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		2E746F4C2E1E206400E6F8E0 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		2E746F4D2E1E206400E6F8E0 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		2E746F4F2E1E206400E6F8E0 /* CategoryPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPickerView.swift; sourceTree = "<group>"; };
 		2E746F502E1E206400E6F8E0 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		2E746F512E1E206400E6F8E0 /* QuizCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizCardView.swift; sourceTree = "<group>"; };
 		2E746F522E1E206400E6F8E0 /* QuizCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizCompleteView.swift; sourceTree = "<group>"; };
 		2E746F532E1E206400E6F8E0 /* QuizCompletionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizCompletionView.swift; sourceTree = "<group>"; };
 		2E746F542E1E206400E6F8E0 /* QuizFeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizFeedbackView.swift; sourceTree = "<group>"; };
 		2E746F562E1E206400E6F8E0 /* QuizModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizModeView.swift; sourceTree = "<group>"; };
-		2E746F582E1E206400E6F8E0 /* CategoryPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPickerView.swift; sourceTree = "<group>"; };
 		2E746F592E1E206400E6F8E0 /* MainMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuButton.swift; sourceTree = "<group>"; };
 		2E746F5A2E1E206400E6F8E0 /* QuizModeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizModeButton.swift; sourceTree = "<group>"; };
 		2E746F5C2E1E206400E6F8E0 /* AddCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardView.swift; sourceTree = "<group>"; };
@@ -93,6 +91,7 @@
 		2E79D6F52DFDBB4000CFF202 /* Flashcards_ChineseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Flashcards_ChineseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E79D6F92DFDBB4000CFF202 /* Flashcards_ChineseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flashcards_ChineseUITests.swift; sourceTree = "<group>"; };
 		2E79D6FB2DFDBB4000CFF202 /* Flashcards_ChineseUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flashcards_ChineseUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		2EE91EB32E28B8BC0009B86F /* UnifiedCategoryPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnifiedCategoryPickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,7 +185,6 @@
 		2E746F552E1E206400E6F8E0 /* QuizComponents */ = {
 			isa = PBXGroup;
 			children = (
-				2E746F4F2E1E206400E6F8E0 /* CategoryPickerView.swift */,
 				2E746F502E1E206400E6F8E0 /* ProgressBar.swift */,
 				2E746F512E1E206400E6F8E0 /* QuizCardView.swift */,
 				2E746F522E1E206400E6F8E0 /* QuizCompleteView.swift */,
@@ -208,7 +206,7 @@
 		2E746F5B2E1E206400E6F8E0 /* SharedComponents */ = {
 			isa = PBXGroup;
 			children = (
-				2E746F582E1E206400E6F8E0 /* CategoryPickerView.swift */,
+				2EE91EB32E28B8BC0009B86F /* UnifiedCategoryPickerView.swift */,
 				2E746F592E1E206400E6F8E0 /* MainMenuButton.swift */,
 				2E746F5A2E1E206400E6F8E0 /* QuizModeButton.swift */,
 			);
@@ -424,7 +422,7 @@
 				2E746F352E1E205A00E6F8E0 /* Flashcards_Chinese/Utils/HapticManager.swift in Sources */,
 				2E79D6E02DFDBB3D00CFF202 /* (null) in Sources */,
 				2E746F5F2E1E206400E6F8E0 /* AdminPanelView.swift in Sources */,
-				2E746F602E1E206400E6F8E0 /* CategoryPickerView.swift in Sources */,
+				2EE91EB42E28B8BC0009B86F /* UnifiedCategoryPickerView.swift in Sources */,
 				2E746F632E1E206400E6F8E0 /* QuizModeView.swift in Sources */,
 				2E746F652E1E206400E6F8E0 /* ProgressBar.swift in Sources */,
 				2E746F662E1E206400E6F8E0 /* FavoriteCardRow.swift in Sources */,

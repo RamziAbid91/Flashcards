@@ -130,7 +130,7 @@ struct QuizModeView: View {
             startNewQuiz()
         }
         .sheet(isPresented: $showingCategoryPicker) {
-            CategoryPickerView(selectedCategory: $selectedCategory, categories: deck.categories)
+            UnifiedCategoryPickerView(selectedCategory: $selectedCategory, categories: deck.categories)
         }
         .sheet(isPresented: $isQuizComplete) {
             QuizCompletionView(deck: deck, action: {

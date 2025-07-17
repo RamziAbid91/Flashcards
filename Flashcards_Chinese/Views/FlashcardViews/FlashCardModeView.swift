@@ -72,6 +72,9 @@ struct FlashcardModeView: View {
             }
         }
         .sheet(isPresented: $deck.showAdminPanel) { AdminPanelView(deck: deck) }
+        .sheet(isPresented: $showingCategoryPicker) {
+            UnifiedCategoryPickerView(selectedCategory: $selectedCategory, categories: deck.categories)
+        }
         .alert("Voice Error", isPresented: $showingVoiceAlert) { Button("OK") {}; Button("Settings") { openAppSettings() } } message: { Text(voiceAlertMessage) }
         .onChange(of: filteredCards.count) { _ in handleCardCountChange() }
         .onChange(of: selectedCategory) { _ in resetToNewCategory() }
@@ -102,7 +105,7 @@ struct FlashcardModeView: View {
                     .frame(height: 16)
             }
         }
-        .sheet(isPresented: $showingCategoryPicker) { CategoryPickerView(selectedCategory: $selectedCategory, categories: deck.categories) }
+        // .sheet(isPresented: $showingCategoryPicker) { UnifiedCategoryPickerView(selectedCategory: $selectedCategory, categories: deck.categories) }
     }
     
     @ViewBuilder
