@@ -10,7 +10,6 @@ import SwiftUI
 struct AddCardView: View {
     @ObservedObject var deck: FlashcardDeck
     @Environment(\.dismiss) private var dismiss
-    @Binding var selectedTab: Int
     
     @State private var chinese = ""
     @State private var pinyin = ""
@@ -68,20 +67,11 @@ struct AddCardView: View {
                 }
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    HStack(spacing: 16) {
-                        Button(action: {
-                            selectedTab = 3 // Switch to Admin Panel
-                        }) {
-                            Image(systemName: "gear.circle.fill")
-                                .foregroundColor(Theme.accentColor)
-                        }
-                        
-                        Button("Save") {
-                            saveCard()
-                        }
-                        .foregroundColor(Theme.accentColor)
-                        .disabled(!isValid)
+                    Button("Save") {
+                        saveCard()
                     }
+                    .foregroundColor(Theme.accentColor)
+                    .disabled(!isValid)
                 }
             }
         }
