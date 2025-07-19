@@ -168,7 +168,7 @@ class FlashcardDeck: ObservableObject {
         DispatchQueue.global(qos: .utility).asyncAfter(deadline: .now() + 0.5, execute: task)
     }
 
-    private func loadCards() {
+    public func loadCards() {
         // Try to load saved cards from file first
         if let data = try? Data(contentsOf: cardsFileUrl),
            let savedCards = try? JSONDecoder().decode([Flashcard].self, from: data) {

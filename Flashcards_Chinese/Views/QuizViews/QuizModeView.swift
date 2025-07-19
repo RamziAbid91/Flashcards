@@ -58,12 +58,9 @@ struct QuizModeView: View {
             quizCardPool = (seenCards + basicWords).shuffled()
         }
         
-        // Limit to 10 questions and ensure we don't have duplicates
-        let uniqueCards = Array(Set(quizCardPool.map { $0.id }))
-            .compactMap { id in
-                quizCardPool.first { $0.id == id }
-            }
-            .shuffled()
+        // More efficient deduplication using Dictionary
+        let uniqueCardDict = Dictionary(uniqueKeysWithValues: quizCardPool.map { ($0.id, $0) })
+        let uniqueCards = Array(uniqueCardDict.values).shuffled()
         
         quizCards = Array(uniqueCards.prefix(10))
     }
@@ -126,6 +123,7 @@ struct QuizModeView: View {
                 .disabled(quizCards.isEmpty)
             }
         }
+        .toolbarBackground(.hidden, for: .navigationBar)
         .onAppear {
             startNewQuiz()
         }

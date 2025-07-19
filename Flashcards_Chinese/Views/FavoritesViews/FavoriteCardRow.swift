@@ -9,25 +9,27 @@ import SwiftUI
 
 struct FavoriteCardRow: View {
     let card: Flashcard
+    @EnvironmentObject var themeManager: ThemeManager
     
     var body: some View {
         HStack {
             VStack(alignment: .leading, spacing: 4) {
                 Text(card.chinese)
                     .font(.headline)
-                    .foregroundColor(Theme.textColor)
+                    .foregroundColor(themeManager.currentTheme.textColor)
                 Text(card.pinyin)
                     .font(.subheadline)
-                    .foregroundColor(Theme.pinyinColor)
+                    .foregroundColor(themeManager.currentTheme.pinyinColor)
                 Text(card.english)
                     .font(.subheadline)
-                    .foregroundColor(Theme.secondaryTextColor)
+                    .foregroundColor(themeManager.currentTheme.secondaryTextColor)
             }
             Spacer()
             Image(systemName: "heart.fill")
-                .foregroundColor(Theme.favoriteColor)
+                .foregroundColor(themeManager.currentTheme.favoriteColor)
         }
         .padding(.vertical, 8)
+        .animation(ThemeTransition.smooth, value: themeManager.isDarkMode)
     }
 }
 

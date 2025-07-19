@@ -2,6 +2,7 @@ import SwiftUI
 
 struct SettingsView: View {
     @ObservedObject var deck: FlashcardDeck
+    @EnvironmentObject var themeManager: ThemeManager
     @State private var showingExportSheet = false
     @State private var showingImportSheet = false
     @State private var showingBackupSheet = false
@@ -16,121 +17,112 @@ struct SettingsView: View {
     
     // User Preferences
     @AppStorage("enableHaptics") private var enableHaptics = true
-    @AppStorage("autoPlayAudio") private var autoPlayAudio = false
-    @AppStorage("showPinyin") private var showPinyin = true
-    @AppStorage("showFrench") private var showFrench = true
-    @AppStorage("quizCardCount") private var quizCardCount = 10
+  
     @AppStorage("studyReminders") private var studyReminders = false
-    @AppStorage("darkModeEnabled") private var darkModeEnabled = false
     
     var body: some View {
-        NavigationView {
-            List {
-                // Study Preferences
-                Section("Study Preferences") {
-                    Toggle("Enable Haptic Feedback", isOn: $enableHaptics)
-                    Toggle("Auto-play Audio", isOn: $autoPlayAudio)
-                    Toggle("Show Pinyin", isOn: $showPinyin)
-                    Toggle("Show French Translation", isOn: $showFrench)
-                    
-                    HStack {
-                        Text("Quiz Cards Count")
-                        Spacer()
-                        Picker("Quiz Cards", selection: $quizCardCount) {
-                            ForEach([5, 10, 15, 20], id: \.self) { count in
-                                Text("\(count)").tag(count)
-                            }
-                        }
-                        .pickerStyle(MenuPickerStyle())
-                    }
-                }
+        List {
+            // Study Preferences
+            Section("Study Preferences") {
+                Toggle("Enable Haptic Feedback", isOn: $enableHaptics)
                 
-                // App Preferences
-                Section("App Preferences") {
-                    Toggle("Study Reminders", isOn: $studyReminders)
-                    Toggle("Dark Mode", isOn: $darkModeEnabled)
-                }
+            }
+            
+            // App Preferences
+            Section("App Preferences") {
+                Toggle("Study Reminders", isOn: $studyReminders)
                 
-                // Data Management
-                Section("Data Management") {
-                    Button("Export Data") {
-                        exportData = DataManager.shared.exportCardsToJSON(deck.cards) ?? ""
-                        showingExportSheet = true
-                    }
-                    
-                    Button("Import Data") {
-                        showingImportSheet = true
-                    }
-                    
-                    Button("Create Backup") {
-                        if let backupURL = DataManager.shared.createBackup() {
-                            alertMessage = "Backup created successfully at: \(backupURL.lastPathComponent)"
-                        } else {
-                            alertMessage = "Failed to create backup"
-                        }
-                        showingAlert = true
-                    }
-                    
-                    Button("Restore from Backup") {
-                        showingBackupSheet = true
-                    }
-                    
-                    // Reset All Progress Button
-                    if isResettingProgress {
-                        VStack(spacing: 12) {
-                            HStack {
-                                Text("Resetting Progress...")
-                                    .font(.subheadline)
-                                    .foregroundColor(.secondary)
-                                Spacer()
-                                Text("\(Int(resetProgress * 100))%")
-                                    .font(.caption)
-                                    .foregroundColor(.secondary)
-                            }
-                            
-                            ProgressView(value: resetProgress)
-                                .progressViewStyle(LinearProgressViewStyle(tint: .red))
-                                .scaleEffect(y: 1.5)
-                        }
-                        .padding(.vertical, 8)
-                    } else {
-                        Button("Reset All Progress") {
-                            showingResetConfirmation = true
-                        }
-                        .foregroundColor(.red)
-                    }
-                }
-                
-                // Statistics
-                Section("Statistics") {
-                    let report = DataManager.shared.generateStudyReport(deck.cards)
-                    
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text("Total Cards: \(report.totalCards)")
-                        Text("Favorites: \(report.favoriteCards)")
-                        Text("Seen Cards: \(report.seenCards)")
-                        Text("Completion: \(String(format: "%.1f", report.completionPercentage))%")
-                        Text("Categories: \(report.categories.count)")
-                        Text("Average Difficulty: \(String(format: "%.1f", report.averageDifficulty))")
-                    }
-                    .font(.caption)
-                }
-                
-                // About
-                Section("About") {
-                    HStack {
-                        Text("Version")
-                        Spacer()
-                        Text("1.0.0")
-                            .foregroundColor(.secondary)
-                    }
-                    
-                    Link("Privacy Policy", destination: URL(string: "https://yourapp.com/privacy")!)
-                    Link("Terms of Service", destination: URL(string: "https://yourapp.com/terms")!)
+                HStack {
+                    Label("Dark Mode", systemImage: themeManager.isDarkMode ? "moon.fill" : "sun.max.fill")
+                        .foregroundColor(themeManager.currentTheme.textColor)
+                    Spacer()
+                    Toggle("", isOn: $themeManager.isDarkMode)
+                        .labelsHidden()
                 }
             }
-            .navigationTitle("Settings")
+            
+            // Data Management
+            Section("Data Management") {
+                Button("Export Data") {
+                    exportData = DataManager.shared.exportCardsToJSON(deck.cards) ?? ""
+                    showingExportSheet = true
+                }
+                
+                Button("Import Data") {
+                    showingImportSheet = true
+                }
+                
+                Button("Create Backup") {
+                    if let backupURL = DataManager.shared.createBackup() {
+                        alertMessage = "Backup created successfully at: \(backupURL.lastPathComponent)"
+                    } else {
+                        alertMessage = "Failed to create backup"
+                    }
+                    showingAlert = true
+                }
+                
+                Button("Restore from Backup") {
+                    showingBackupSheet = true
+                }
+                
+                // Reset All Progress Button
+                if isResettingProgress {
+                    VStack(spacing: 12) {
+                        HStack {
+                            Text("Resetting Progress...")
+                                .font(.subheadline)
+                                .foregroundColor(.secondary)
+                            Spacer()
+                            Text("\(Int(resetProgress * 100))%")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+                        
+                        ProgressView(value: resetProgress)
+                            .progressViewStyle(LinearProgressViewStyle(tint: .red))
+                            .scaleEffect(y: 1.5)
+                    }
+                    .padding(.vertical, 8)
+                } else {
+                    Button("Reset All Progress") {
+                        showingResetConfirmation = true
+                    }
+                    .foregroundColor(.red)
+                }
+            }
+            
+            // Statistics
+            Section("Statistics") {
+                let report = DataManager.shared.generateStudyReport(deck.cards)
+                
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("Total Cards: \(report.totalCards)")
+                    Text("Favorites: \(report.favoriteCards)")
+                    Text("Seen Cards: \(report.seenCards)")
+                    Text("Completion: \(String(format: "%.1f", report.completionPercentage))%")
+                    Text("Categories: \(report.categories.count)")
+                    Text("Average Difficulty: \(String(format: "%.1f", report.averageDifficulty))")
+                }
+                .font(.caption)
+            }
+            
+            // About
+            Section("About") {
+                HStack {
+                    Text("Version")
+                    Spacer()
+                    Text("1.0.0")
+                        .foregroundColor(.secondary)
+                }
+                
+                Link("Privacy Policy", destination: URL(string: "https://yourapp.com/privacy")!)
+                Link("Terms of Service", destination: URL(string: "https://yourapp.com/terms")!)
+            }
         }
+        .navigationTitle("Settings")
+        .navigationBarTitleDisplayMode(.large)
+        .themedListBackground()
+        .animation(ThemeTransition.smooth, value: themeManager.isDarkMode)
         .sheet(isPresented: $showingExportSheet) {
             ShareSheet(activityItems: [exportData])
         }

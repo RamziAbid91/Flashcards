@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		2E06668C2E21DE8B004570E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E06668B2E21DE8B004570E2 /* Assets.xcassets */; };
+		2E1BF5632E2BD0930075A88A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1BF5612E2BD0930075A88A /* SettingsView.swift */; };
+		2E3027742E2BCF160085D3F1 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3027732E2BCF160085D3F1 /* Theme.swift */; };
+		2E3027762E2BCF1F0085D3F1 /* ThemeUpdaterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3027752E2BCF1F0085D3F1 /* ThemeUpdaterView.swift */; };
+		2E3027782E2BCF280085D3F1 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3027772E2BCF280085D3F1 /* DataManager.swift */; };
+		2E30277A2E2BCF2F0085D3F1 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3027792E2BCF2F0085D3F1 /* HapticManager.swift */; };
 		2E746F312E1E205A00E6F8E0 /* Flashcards_Chinese/Utils/ThemeUpdaterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F2F2E1E205A00E6F8E0 /* Flashcards_Chinese/Utils/ThemeUpdaterView.swift */; };
 		2E746F332E1E205A00E6F8E0 /* Flashcards_Chinese/Utils/Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F2E2E1E205A00E6F8E0 /* Flashcards_Chinese/Utils/Theme.swift */; };
 		2E746F352E1E205A00E6F8E0 /* Flashcards_Chinese/Utils/HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F2D2E1E205A00E6F8E0 /* Flashcards_Chinese/Utils/HapticManager.swift */; };
@@ -21,7 +26,6 @@
 		2E746F6A2E1E206400E6F8E0 /* FlashCardModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F472E1E206400E6F8E0 /* FlashCardModeView.swift */; };
 		2E746F6B2E1E206400E6F8E0 /* ControlButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F442E1E206400E6F8E0 /* ControlButton.swift */; };
 		2E746F6D2E1E206400E6F8E0 /* QuizCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F512E1E206400E6F8E0 /* QuizCardView.swift */; };
-		2E746F6E2E1E206400E6F8E0 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F4D2E1E206400E6F8E0 /* SettingsView.swift */; };
 		2E746F702E1E206400E6F8E0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F4B2E1E206400E6F8E0 /* HomeView.swift */; };
 		2E746F712E1E206400E6F8E0 /* FlashCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F482E1E206400E6F8E0 /* FlashCardView.swift */; };
 		2E746F722E1E206400E6F8E0 /* MainMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E746F592E1E206400E6F8E0 /* MainMenuButton.swift */; };
@@ -58,6 +62,11 @@
 
 /* Begin PBXFileReference section */
 		2E06668B2E21DE8B004570E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2E1BF5612E2BD0930075A88A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		2E3027732E2BCF160085D3F1 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		2E3027752E2BCF1F0085D3F1 /* ThemeUpdaterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeUpdaterView.swift; sourceTree = "<group>"; };
+		2E3027772E2BCF280085D3F1 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		2E3027792E2BCF2F0085D3F1 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		2E746F2D2E1E205A00E6F8E0 /* Flashcards_Chinese/Utils/HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flashcards_Chinese/Utils/HapticManager.swift; sourceTree = "<group>"; };
 		2E746F2E2E1E205A00E6F8E0 /* Flashcards_Chinese/Utils/Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flashcards_Chinese/Utils/Theme.swift; sourceTree = "<group>"; };
 		2E746F2F2E1E205A00E6F8E0 /* Flashcards_Chinese/Utils/ThemeUpdaterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flashcards_Chinese/Utils/ThemeUpdaterView.swift; sourceTree = "<group>"; };
@@ -72,8 +81,6 @@
 		2E746F4A2E1E206400E6F8E0 /* AdminPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminPanelView.swift; sourceTree = "<group>"; };
 		2E746F4B2E1E206400E6F8E0 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		2E746F4C2E1E206400E6F8E0 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
-		2E746F4D2E1E206400E6F8E0 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		2E746F502E1E206400E6F8E0 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		2E746F512E1E206400E6F8E0 /* QuizCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizCardView.swift; sourceTree = "<group>"; };
 		2E746F522E1E206400E6F8E0 /* QuizCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizCompleteView.swift; sourceTree = "<group>"; };
 		2E746F532E1E206400E6F8E0 /* QuizCompletionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizCompletionView.swift; sourceTree = "<group>"; };
@@ -119,19 +126,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E1BF5622E2BD0930075A88A /* SettingsViews */ = {
+			isa = PBXGroup;
+			children = (
+				2E1BF5612E2BD0930075A88A /* SettingsView.swift */,
+			);
+			path = SettingsViews;
+			sourceTree = "<group>";
+		};
 		2E746F3C2E1E206400E6F8E0 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				2E3027752E2BCF1F0085D3F1 /* ThemeUpdaterView.swift */,
+				2E3027732E2BCF160085D3F1 /* Theme.swift */,
+				2E3027772E2BCF280085D3F1 /* DataManager.swift */,
+				2E3027792E2BCF2F0085D3F1 /* HapticManager.swift */,
 				2E06668B2E21DE8B004570E2 /* Assets.xcassets */,
 			);
 			path = Utils;
-			sourceTree = "<group>";
-		};
-		2E746F3D2E1E206400E6F8E0 /* AdminViews */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = AdminViews;
 			sourceTree = "<group>";
 		};
 		2E746F3F2E1E206400E6F8E0 /* Components */ = {
@@ -177,7 +189,6 @@
 				2E746F4A2E1E206400E6F8E0 /* AdminPanelView.swift */,
 				2E746F4B2E1E206400E6F8E0 /* HomeView.swift */,
 				2E746F4C2E1E206400E6F8E0 /* MainTabView.swift */,
-				2E746F4D2E1E206400E6F8E0 /* SettingsView.swift */,
 			);
 			path = MainViews;
 			sourceTree = "<group>";
@@ -185,7 +196,6 @@
 		2E746F552E1E206400E6F8E0 /* QuizComponents */ = {
 			isa = PBXGroup;
 			children = (
-				2E746F502E1E206400E6F8E0 /* ProgressBar.swift */,
 				2E746F512E1E206400E6F8E0 /* QuizCardView.swift */,
 				2E746F522E1E206400E6F8E0 /* QuizCompleteView.swift */,
 				2E746F532E1E206400E6F8E0 /* QuizCompletionView.swift */,
@@ -216,7 +226,7 @@
 		2E746F5D2E1E206400E6F8E0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				2E746F3D2E1E206400E6F8E0 /* AdminViews */,
+				2E1BF5622E2BD0930075A88A /* SettingsViews */,
 				2E746F3F2E1E206400E6F8E0 /* Components */,
 				2E746F422E1E206400E6F8E0 /* FavoritesViews */,
 				2E746F492E1E206400E6F8E0 /* FlashcardViews */,
@@ -418,6 +428,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E746F312E1E205A00E6F8E0 /* Flashcards_Chinese/Utils/ThemeUpdaterView.swift in Sources */,
+				2E3027782E2BCF280085D3F1 /* DataManager.swift in Sources */,
 				2E746F332E1E205A00E6F8E0 /* Flashcards_Chinese/Utils/Theme.swift in Sources */,
 				2E746F352E1E205A00E6F8E0 /* Flashcards_Chinese/Utils/HapticManager.swift in Sources */,
 				2E79D6E02DFDBB3D00CFF202 /* (null) in Sources */,
@@ -430,19 +441,22 @@
 				2E746F682E1E206400E6F8E0 /* FlashcardDetailView.swift in Sources */,
 				2E746F692E1E206400E6F8E0 /* QuizCompleteView.swift in Sources */,
 				2E746F6A2E1E206400E6F8E0 /* FlashCardModeView.swift in Sources */,
+				2E3027742E2BCF160085D3F1 /* Theme.swift in Sources */,
 				2E746F6B2E1E206400E6F8E0 /* ControlButton.swift in Sources */,
 				2E746F6D2E1E206400E6F8E0 /* QuizCardView.swift in Sources */,
-				2E746F6E2E1E206400E6F8E0 /* SettingsView.swift in Sources */,
+				2E3027762E2BCF1F0085D3F1 /* ThemeUpdaterView.swift in Sources */,
 				2E746F702E1E206400E6F8E0 /* HomeView.swift in Sources */,
 				2E746F712E1E206400E6F8E0 /* FlashCardView.swift in Sources */,
 				2E746F722E1E206400E6F8E0 /* MainMenuButton.swift in Sources */,
 				2E746F732E1E206400E6F8E0 /* QuizCompletionView.swift in Sources */,
 				2E746F742E1E206400E6F8E0 /* MainTabView.swift in Sources */,
 				2E746F762E1E206400E6F8E0 /* AddCardView.swift in Sources */,
+				2E1BF5632E2BD0930075A88A /* SettingsView.swift in Sources */,
 				2E746F772E1E206400E6F8E0 /* FavoritesView.swift in Sources */,
 				2E746F792E1E206400E6F8E0 /* QuizModeButton.swift in Sources */,
 				2E746F7B2E1E20EB00E6F8E0 /* Chinese_FlashcardsApp.swift in Sources */,
 				2E746F892E1E21A500E6F8E0 /* Flashcards_Chinese/Models/FlashcardDeck.swift in Sources */,
+				2E30277A2E2BCF2F0085D3F1 /* HapticManager.swift in Sources */,
 				2E746F8A2E1E21A500E6F8E0 /* Flashcards_Chinese/Models/Flashcard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

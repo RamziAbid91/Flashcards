@@ -204,35 +204,55 @@ private struct BackView: View {
 // MARK: - Reusable Helper Views
 private struct TranslationBox: View {
     let language: String; let meaning: String
+    @EnvironmentObject var themeManager: ThemeManager
    
     var body: some View {
         VStack(spacing: 2) {
-            Text(language).font(.caption.weight(.semibold)).foregroundColor(Theme.tertiaryTextColor)
+            Text(language)
+                .font(.caption.weight(.semibold))
+                .foregroundColor(themeManager.currentTheme.tertiaryTextColor)
             Text(meaning)
                 .font(.title2.weight(.regular))
-                .foregroundColor(Theme.secondaryTextColor)
+                .foregroundColor(themeManager.currentTheme.secondaryTextColor)
                 .multilineTextAlignment(.center)
                 .lineLimit(nil)
                 .minimumScaleFactor(0.8)
                 .fixedSize(horizontal: false, vertical: true)
         }
         .padding(.vertical, 8).padding(.horizontal).frame(maxWidth: .infinity)
-        .background(Theme.secondaryBackgroundColor).cornerRadius(10)
-        .shadow(color: Theme.cardShadowColor.opacity(0.5), radius: 1, y: 1)
+        .background(themeManager.currentTheme.secondaryBackgroundColor)
+        .cornerRadius(10)
+        .shadow(
+            color: themeManager.currentTheme.cardShadowColor.opacity(0.5), 
+            radius: 1, 
+            y: 1
+        )
+        .animation(ThemeTransition.smooth, value: themeManager.isDarkMode)
     }
 }
 
 private struct CardSideModifier: ViewModifier {
     let isFront: Bool; let isFlipped: Bool; let isBackground: Bool
+    @EnvironmentObject var themeManager: ThemeManager
   
     func body(content: Content) -> some View {
         content
-            .background(Theme.cardBackgroundColor)
+            .background(themeManager.currentTheme.cardBackgroundColor)
             .cornerRadius(16)
-            .shadow(color: Theme.cardShadowColor, radius: isBackground ? 2 : 8, x: 0, y: isBackground ? 1 : 4)
+            .overlay(
+                RoundedRectangle(cornerRadius: 16)
+                    .stroke(themeManager.currentTheme.cardBorderColor, lineWidth: 1)
+            )
+            .shadow(
+                color: themeManager.currentTheme.cardShadowColor,
+                radius: isBackground ? (themeManager.isDarkMode ? 4 : 2) : (themeManager.isDarkMode ? 12 : 8),
+                x: 0,
+                y: isBackground ? (themeManager.isDarkMode ? 2 : 1) : (themeManager.isDarkMode ? 6 : 4)
+            )
             .rotation3DEffect(.degrees(isFlipped ? (isFront ? -180 : 0) : (isFront ? 0 : 180)), axis: (x: 0, y: 1, z: 0))
             .opacity(isFlipped ? (isFront ? 0 : 1) : (isFront ? 1 : 0))
-            .animation(.spring(response: 0.35, dampingFraction: 0.65), value: isFlipped)
+            .animation(ThemeTransition.spring, value: isFlipped)
+            .animation(ThemeTransition.smooth, value: themeManager.isDarkMode)
     }
 }
 

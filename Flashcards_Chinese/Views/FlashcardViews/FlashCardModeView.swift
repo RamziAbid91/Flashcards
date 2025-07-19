@@ -71,6 +71,7 @@ struct FlashcardModeView: View {
                 }
             }
         }
+        .toolbarBackground(.hidden, for: .navigationBar)
         .sheet(isPresented: $deck.showAdminPanel) { AdminPanelView(deck: deck) }
         .sheet(isPresented: $showingCategoryPicker) {
             UnifiedCategoryPickerView(selectedCategory: $selectedCategory, categories: deck.categories)

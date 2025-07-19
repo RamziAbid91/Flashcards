@@ -9,6 +9,7 @@ import SwiftUI
 
 struct FavoritesView: View {
     @ObservedObject var deck: FlashcardDeck
+    @EnvironmentObject var themeManager: ThemeManager
     
     @State private var searchText = ""
     
@@ -32,7 +33,7 @@ struct FavoritesView: View {
     
     var body: some View {
         ZStack {
-            Theme.backgroundColor.ignoresSafeArea()
+            themeManager.currentTheme.backgroundColor.ignoresSafeArea()
             
             VStack {
                 if favoriteCards.isEmpty {
@@ -51,10 +52,11 @@ struct FavoritesView: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 if !favoriteCards.isEmpty {
                     EditButton()
-                        .tint(Theme.primaryColor)
+                        .tint(themeManager.currentTheme.primaryColor)
                 }
             }
         }
+        .animation(ThemeTransition.smooth, value: themeManager.isDarkMode)
         // Force refresh when deck changes
         .onReceive(deck.$cards) { _ in
             // This ensures the view updates when cards change
@@ -69,14 +71,14 @@ struct FavoritesView: View {
         VStack(spacing: 12) {
             Image(systemName: "heart.slash.fill")
                 .font(.system(size: 50))
-                .foregroundColor(Theme.placeholderTextColor)
+                .foregroundColor(themeManager.currentTheme.placeholderTextColor)
             Text("No Favorites Yet")
                 .font(.title3)
-                .foregroundColor(Theme.secondaryTextColor)
+                .foregroundColor(themeManager.currentTheme.secondaryTextColor)
             Text("Tap the heart icon on a flashcard to save it here.")
                 .font(.callout)
                 .multilineTextAlignment(.center)
-                .foregroundColor(Theme.tertiaryTextColor)
+                .foregroundColor(themeManager.currentTheme.tertiaryTextColor)
         }
         .padding()
     }
@@ -85,14 +87,14 @@ struct FavoritesView: View {
         VStack(spacing: 12) {
             Image(systemName: "magnifyingglass")
                 .font(.system(size: 50))
-                .foregroundColor(Theme.placeholderTextColor)
+                .foregroundColor(themeManager.currentTheme.placeholderTextColor)
             Text("No Matches Found")
                 .font(.title3)
-                .foregroundColor(Theme.secondaryTextColor)
+                .foregroundColor(themeManager.currentTheme.secondaryTextColor)
             Text("No favorites match \"\(searchText)\".")
                 .font(.callout)
                 .multilineTextAlignment(.center)
-                .foregroundColor(Theme.tertiaryTextColor)
+                .foregroundColor(themeManager.currentTheme.tertiaryTextColor)
         }
         .padding()
     }
@@ -110,11 +112,10 @@ struct FavoritesView: View {
                     deck.toggleFavorite(card: card)
                 }
             }
-            .listRowBackground(Theme.cardBackgroundColor)
+            .listRowBackground(themeManager.currentTheme.cardBackgroundColor)
         }
         .listStyle(.plain)
-        .background(Theme.backgroundColor)
-        .scrollContentBackground(.hidden)
+        .themedListBackground()
     }
 }
 
