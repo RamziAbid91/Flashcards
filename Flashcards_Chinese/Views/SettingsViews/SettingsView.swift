@@ -39,28 +39,6 @@ struct SettingsView: View {
             
             // Data Management
             Section("Data Management") {
-                Button("Export Data") {
-                    exportData = DataManager.shared.exportCardsToJSON(deck.cards) ?? ""
-                    showingExportSheet = true
-                }
-                
-                Button("Import Data") {
-                    showingImportSheet = true
-                }
-                
-                Button("Create Backup") {
-                    if let backupURL = DataManager.shared.createBackup() {
-                        alertMessage = "Backup created successfully at: \(backupURL.lastPathComponent)"
-                    } else {
-                        alertMessage = "Failed to create backup"
-                    }
-                    showingAlert = true
-                }
-                
-                Button("Restore from Backup") {
-                    showingBackupSheet = true
-                }
-                
                 // Reset All Progress Button
                 if isResettingProgress {
                     VStack(spacing: 12) {
@@ -144,9 +122,17 @@ struct SettingsView: View {
                     Text("1.0.0")
                         .foregroundColor(.secondary)
                 }
-                
-                Link("Privacy Policy", destination: URL(string: "https://yourapp.com/privacy")!)
-                Link("Terms of Service", destination: URL(string: "https://yourapp.com/terms")!)
+                Link("Privacy Policy", destination: URL(string: "https://docs.google.com/document/d/1JNl8pvur1u0tAu_mWhnRgb71Lp6jJbHlyzAX8pzQ9lQ/edit?tab=t.0#heading=h.l7ae5nyhmzce")!)
+            }
+
+            // Contact
+            Section("Contact") {
+                ContactForm()
+            }
+
+            // Copyright
+            Section(footer: Text("© 2025 June & Ramzi").font(.footnote).foregroundColor(.secondary).frame(maxWidth: .infinity, alignment: .center)) {
+                EmptyView()
             }
         }
         .navigationTitle("Settings")
@@ -322,6 +308,51 @@ struct BackupView: View {
             backupFiles = files.filter { $0.lastPathComponent.contains("flashcards_backup_") }
         } catch {
             print("Error loading backup files: \(error)")
+        }
+    }
+} 
+
+// ContactForm view
+struct ContactForm: View {
+    @State private var subject = ""
+    @State private var message = ""
+    @State private var showMailAlert = false
+    @State private var mailError = ""
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            TextField("Subject", text: $subject)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+            TextEditor(text: $message)
+                .frame(height: 80)
+                .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.gray.opacity(0.3)))
+            Button(action: sendMail) {
+                HStack {
+                    Image(systemName: "paperplane.fill")
+                    Text("Send Message")
+                }
+                .frame(maxWidth: .infinity)
+            }
+            .buttonStyle(.borderedProminent)
+            .disabled(subject.isEmpty || message.isEmpty)
+        }
+        .alert("Mail Error", isPresented: $showMailAlert) {
+            Button("OK", role: .cancel) { }
+        } message: {
+            Text(mailError)
+        }
+    }
+
+    private func sendMail() {
+        let email = "ramziabid@gmail.com"
+        let subjectEncoded = subject.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        let messageEncoded = message.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        let urlString = "mailto:\(email)?subject=\(subjectEncoded)&body=\(messageEncoded)"
+        if let url = URL(string: urlString), UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url)
+        } else {
+            mailError = "Unable to open mail app. Please check your device settings."
+            showMailAlert = true
         }
     }
 } 
