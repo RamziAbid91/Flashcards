@@ -54,7 +54,7 @@ struct UnifiedCategoryPickerView: View {
                     .buttonStyle(PlainButtonStyle())
                 }
             }
-            .listStyle(.insetGrouped)
+            .listStyle(.plain)
             .searchable(text: $searchText, prompt: "Search categories")
             .navigationTitle("Select Category")
             .navigationBarTitleDisplayMode(.inline)
