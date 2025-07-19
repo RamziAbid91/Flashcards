@@ -18,20 +18,16 @@ struct SettingsView: View {
     // User Preferences
     @AppStorage("enableHaptics") private var enableHaptics = true
   
-    @AppStorage("studyReminders") private var studyReminders = false
-    
     var body: some View {
         List {
             // Study Preferences
             Section("Study Preferences") {
-                Toggle("Enable Haptic Feedback", isOn: $enableHaptics)
+                Toggle("Vibrations Effects", isOn: $enableHaptics)
                 
             }
             
             // App Preferences
             Section("App Preferences") {
-                Toggle("Study Reminders", isOn: $studyReminders)
-                
                 HStack {
                     Label("Dark Mode", systemImage: themeManager.isDarkMode ? "moon.fill" : "sun.max.fill")
                         .foregroundColor(themeManager.currentTheme.textColor)
@@ -88,6 +84,40 @@ struct SettingsView: View {
                         showingResetConfirmation = true
                     }
                     .foregroundColor(.red)
+                }
+                
+                // Reset All Favorites Button
+                Button("Reset All Favorites") {
+                    showingAlert = true
+                    alertMessage = "Are you sure you want to remove all favorites? This cannot be undone."
+                }
+                .foregroundColor(.orange)
+                .alert("Reset All Favorites", isPresented: Binding(get: { alertMessage == "Are you sure you want to remove all favorites? This cannot be undone." && showingAlert }, set: { showingAlert = $0 })) {
+                    Button("Cancel", role: .cancel) { }
+                    Button("Reset", role: .destructive) {
+                        deck.resetAllFavorites()
+                        alertMessage = "All favorites have been removed."
+                        showingAlert = true
+                    }
+                } message: {
+                    Text(alertMessage)
+                }
+                
+                // Restore Default Cards Button
+                Button("Restore All Default Cards") {
+                    showingAlert = true
+                    alertMessage = "Are you sure you want to restore all default cards? This will replace your current cards and cannot be undone."
+                }
+                .foregroundColor(.blue)
+                .alert("Restore All Default Cards", isPresented: Binding(get: { alertMessage == "Are you sure you want to restore all default cards? This will replace your current cards and cannot be undone." && showingAlert }, set: { showingAlert = $0 })) {
+                    Button("Cancel", role: .cancel) { }
+                    Button("Restore", role: .destructive) {
+                        deck.resetToDefaultCards()
+                        alertMessage = "All cards have been restored to default."
+                        showingAlert = true
+                    }
+                } message: {
+                    Text(alertMessage)
                 }
             }
             

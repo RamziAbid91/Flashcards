@@ -668,6 +668,14 @@ class FlashcardDeck: ObservableObject {
         return baseInterval * (1 + streakMultiplier)
     }
 
+    func resetAllFavorites() {
+        for index in cards.indices {
+            cards[index].isFavorite = false
+        }
+        invalidateCaches()
+        saveCards()
+        objectWillChange.send()
+    }
 
 }
 
